@@ -29173,10 +29173,11 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuet
  */
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-  el: '#main',
-  data: {
-    drawer: false
-  }
+    el: '#main',
+    data: {
+        drawer: false,
+        navResources: [{ name: 'Track', active: false }, { name: 'Artist', active: false }, { name: 'Promoter', active: false }]
+    }
 });
 
 /***/ }),

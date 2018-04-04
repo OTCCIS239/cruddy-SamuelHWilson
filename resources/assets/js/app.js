@@ -18,6 +18,11 @@ Vue.use(Vuetify);
 const app = new Vue({
     el: '#main',
     data: {
-        drawer: false
+        drawer: false,
+        navResources: [
+            {name:'Track', active:false},
+            {name:'Artist', active:false},
+            {name:'Promoter', active:false}
+        ]
     }
 });

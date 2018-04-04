@@ -6,6 +6,28 @@
     <body>
         <div id="main">
             <v-app>
+                <v-navigation-drawer permanent>
+                    <v-list subheader>
+                        <v-subheader>Data Management</v-subheader>
+                        <v-list-group v-for="res in navResources" v-model='res.active'>
+                            <v-list-tile slot="activator">
+                                <v-list-tile-content>
+                                    <v-list-tile-title>@{{ res.name }}s</v-list-tile-title>
+                                </v-list-tile-content>
+                            </v-list-tile>
+                            <v-list-tile>
+                                <v-list-tile-content>
+                                    <v-list-tile-title>Browse all @{{ res.name }}s</v-list-tile-title>
+                                </v-list-tile-content>
+                            </v-list-tile>
+                            <v-list-tile>
+                                <v-list-tile-content>
+                                    <v-list-tile-title>Create a @{{ res.name }}</v-list-tile-title>
+                                </v-list-tile-content>
+                            </v-list-tile>
+                        </v-list-group>
+                    </v-list>
+                </v-navigation-drawer>
                 <v-toolbar color="indigo" dark fixed app>
                     <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
                     <v-toolbar-title>Good Music 2.0</v-toolbar-title>
