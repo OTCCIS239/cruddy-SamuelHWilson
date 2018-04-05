@@ -18,11 +18,12 @@ Vue.use(Vuetify);
 const app = new Vue({
     el: '#main',
     data: {
-        drawer: false,
+        drawer: true,
         navResources: [
-            {name:'Track', active:false},
-            {name:'Artist', active:false},
-            {name:'Promoter', active:false}
+            {name:'Track', faIcon:'headphones', route:"/tracks", active:false},
+            {name:'Album', faIcon:'dot-circle', route:"/albums", active:false},
+            {name:'Artist', faIcon:'microphone', route:"/artists", active:false},
+            {name:'Promoter', faIcon:'volume-up', route:"/promoters", active:false},
         ]
     }
 });

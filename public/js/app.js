@@ -29175,8 +29175,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuet
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#main',
     data: {
-        drawer: false,
-        navResources: [{ name: 'Track', active: false }, { name: 'Artist', active: false }, { name: 'Promoter', active: false }]
+        drawer: true,
+        navResources: [{ name: 'Track', faIcon: 'headphones', route: "/tracks", active: false }, { name: 'Album', faIcon: 'dot-circle', route: "/albums", active: false }, { name: 'Artist', faIcon: 'microphone', route: "/artists", active: false }, { name: 'Promoter', faIcon: 'volume-up', route: "/promoters", active: false }]
     }
 });
 

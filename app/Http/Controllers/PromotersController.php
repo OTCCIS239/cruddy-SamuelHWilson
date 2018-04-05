@@ -23,7 +23,7 @@ class PromotersController extends Controller
      */
     public function create()
     {
-        //
+        return view('promoters.create');
     }
 
     /**
