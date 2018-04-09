@@ -23,7 +23,7 @@ class CollectionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('collections.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class CollectionsController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('collections.show');
     }
 
     /**
