@@ -15,15 +15,20 @@ Vue.use(Vuetify);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.component(
+    'v-main-nav',
+    require('./components/MainNav.vue')
+);
+
 const app = new Vue({
     el: '#main',
     data: {
         drawer: true,
         navResources: [
             {name:'Track', faIcon:'headphones', route:"/tracks", active:false},
-            {name:'Album', faIcon:'dot-circle', route:"/albums", active:false},
+            {name:'Collection', faIcon:'dot-circle', route:"/collections", active:false},
             {name:'Artist', faIcon:'microphone', route:"/artists", active:false},
-            {name:'Promoter', faIcon:'volume-up', route:"/promoters", active:false},
+            {name:'Label', faIcon:'volume-up', route:"/labels", active:false}
         ]
     }
 });

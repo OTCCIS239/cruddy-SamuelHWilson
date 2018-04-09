@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PromotersController extends Controller
+class LabelsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class PromotersController extends Controller
      */
     public function index()
     {
-        return view('promoters.index');
+        
     }
 
     /**
@@ -23,7 +23,7 @@ class PromotersController extends Controller
      */
     public function create()
     {
-        return view('promoters.create');
+        return view('labels.create');
     }
 
     /**

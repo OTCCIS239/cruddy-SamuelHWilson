@@ -1,5 +1,8 @@
 {
-    "/js/app.js": "/js/app.js?id=20443fe09b7887dcc972",
+    "/js/pages/labels/create.js": "/js/pages/labels/create.js?id=be88c4ab7176960de270",
+    "/js/pages/characteristics/index.js": "/js/pages/characteristics/index.js?id=593e6febf47767f8af1b",
+    "/js/app.js": "/js/app.js?id=0b997082c6ed95bbf1c7",
     "/css/app.css": "/css/app.css?id=eb0ae5303d79e9603823",
-    "\\js\\app.js": "\\js\\app.js?id=20443fe09b7887dcc972"
+    "\\js\\app.js": "\\js\\app.js?id=0b997082c6ed95bbf1c7",
+    "\\css\\app.css": "\\css\\app.css?id=eb0ae5303d79e9603823"
 }

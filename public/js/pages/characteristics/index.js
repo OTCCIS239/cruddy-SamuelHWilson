@@ -60,10 +60,163 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/CharsViewRemovable.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        chars: {
+            type: Array,
+            default: []
+        },
+        filter: {
+            type: String,
+            default: ''
+        },
+        isEditing: {
+            type: Boolean,
+            default: false
+        }
+    },
+    data: function data() {
+        return {
+            toRemove: []
+        };
+    },
+    computed: {
+        showChars: function showChars() {
+            var _this = this;
+
+            if (this.filter != '') {
+                this.sp = [];
+                this.chars.forEach(function (char) {
+                    console.log(_this.filterRegex);
+                    console.log();
+                    if (char.name.match(_this.filterRegex)) {
+                        _this.sp.push(char);
+                    }
+                });
+                return this.sp;
+            } else {
+                return this.chars;
+            }
+        },
+        filterRegex: function filterRegex() {
+            return new RegExp(this.filter + "*", 'i');
+        }
+    },
+    methods: {
+        TargetChar: function TargetChar(name) {
+            this.toRemove.push(name);
+        },
+        UndoTargetChar: function UndoTargetChar(name) {
+            this.toRemove = ary.filter(function (e) {
+                return e !== name;
+            });
+        }
+    },
+    watch: {
+        isEditing: function isEditing() {
+            if (this.isEditing == false) {
+                this.toRemove = [];
+            }
+        }
+    }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/EditableChar.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
+    props: {
+        isEditing: {
+            type: Boolean,
+            default: false
+        },
+        isSelected: {
+            type: Boolean,
+            default: false
+        },
+        char: {
+            type: Object
+        }
+    },
+    data: function data() {
+        return {};
+    },
+    methods: {
+        SmartSelect: function SmartSelect(event) {
+            if (!this.isSelected) {
+                this.isSelected = true;
+                // this.$emit('target-char', this.char.name)
+            } else {
+                this.isSelected = false;
+                // this.$emit('undo-target-char', this.char.name)
+            }
+        }
+    },
+    computed: {
+        color: function color() {
+            return this.isSelected ? 'red' : 'grey darken-1';
+        },
+        icon: function icon() {
+            return this.isSelected ? 'undo-alt' : 'times-circle';
+        }
+    },
+    watch: {
+        isEditing: function isEditing() {
+            if (this.isEditing == false) {
+                this.isSelected = false;
+            }
+        }
+    }
+}, 'methods', {
+    testName: function testName(regex) {
+        return this.char.name.test(regex);
+    }
+}));
+
+/***/ }),
 
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/MainNav.vue":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -686,6 +839,110 @@ module.exports = function normalizeComponent (
   }
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1c4e745e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/EditableChar.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "d-inline-block" },
+    [
+      !_vm.isEditing
+        ? _c("v-chip", { attrs: { color: "primary", "text-color": "white" } }, [
+            _vm._v(_vm._s(this.char.name))
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.isEditing
+        ? _c(
+            "v-chip",
+            {
+              attrs: { color: _vm.color, "text-color": "white" },
+              on: { click: _vm.SmartSelect }
+            },
+            [
+              _vm._v("\n        " + _vm._s(this.char.name) + " \n        "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.isSelected,
+                      expression: "!isSelected"
+                    }
+                  ]
+                },
+                [_c("i", { staticClass: "fas fa-lg ml-2 fa-times-circle" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.isSelected,
+                      expression: "isSelected"
+                    }
+                  ]
+                },
+                [_c("i", { staticClass: "fas fa-lg ml-2 fa-undo-alt" })]
+              )
+            ]
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1c4e745e", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-434edbe0\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/CharsViewRemovable.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    _vm._l(_vm.chars, function(char) {
+      return _c("v-editable-char", {
+        key: char.name,
+        attrs: { char: char, "is-editing": _vm.isEditing },
+        on: { "target-char": _vm.TargetChar }
+      })
+    })
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-434edbe0", module.exports)
+  }
+}
 
 /***/ }),
 
@@ -29464,41 +29721,99 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/assets/js/app.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./resources/assets/js/components/CharsViewRemovable.vue":
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__("./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuetify__ = __webpack_require__("./node_modules/vuetify/dist/vuetify.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuetify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuetify__);
+var disposed = false
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/CharsViewRemovable.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-434edbe0\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/CharsViewRemovable.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\CharsViewRemovable.vue"
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-434edbe0", Component.options)
+  } else {
+    hotAPI.reload("data-v-434edbe0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
 
 
+/***/ }),
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuetify___default.a);
+/***/ "./resources/assets/js/components/EditableChar.vue":
+/***/ (function(module, exports, __webpack_require__) {
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+var disposed = false
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/EditableChar.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1c4e745e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/EditableChar.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\EditableChar.vue"
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-main-nav', __webpack_require__("./resources/assets/js/components/MainNav.vue"));
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1c4e745e", Component.options)
+  } else {
+    hotAPI.reload("data-v-1c4e745e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
 
-var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-    el: '#main',
-    data: {
-        drawer: true,
-        navResources: [{ name: 'Track', faIcon: 'headphones', route: "/tracks", active: false }, { name: 'Collection', faIcon: 'dot-circle', route: "/collections", active: false }, { name: 'Artist', faIcon: 'microphone', route: "/artists", active: false }, { name: 'Label', faIcon: 'volume-up', route: "/labels", active: false }]
-    }
-});
+module.exports = Component.exports
+
 
 /***/ }),
 
@@ -29550,18 +29865,60 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ "./resources/assets/sass/app.scss":
-/***/ (function(module, exports) {
+/***/ "./resources/assets/js/pages/characteristics/index.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__("./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuetify__ = __webpack_require__("./node_modules/vuetify/dist/vuetify.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuetify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuetify__);
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuetify___default.a);
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-main-nav', __webpack_require__("./resources/assets/js/components/MainNav.vue"));
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-removable-chars', __webpack_require__("./resources/assets/js/components/CharsViewRemovable.vue"));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-editable-char', __webpack_require__("./resources/assets/js/components/EditableChar.vue"));
+
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+    el: '#main',
+    data: {
+        drawer: false,
+        filter: '',
+        isEditing: false,
+        testData: [{ name: 'Stunning Vocals' }, { name: 'Thoughtful Composition' }, { name: 'Unique Sampling' }, { name: 'Tasteful Vocal-Sampling' }, { name: 'Guitar' }, { name: 'Purposeful Progression' }, { name: 'Piano' }, { name: 'Unique Sound' }, { name: 'Hype' }, { name: 'Chill' }, { name: 'Engaging Lyrics' }]
+    },
+    computed: {
+        showChars: function showChars() {
+            var _this = this;
+
+            if (this.filter != '') {
+                var sp = [];
+                this.testData.forEach(function (char) {
+                    if (char.name.match(_this.filterRegex)) {
+                        sp.push(char);
+                    }
+                });
+                return sp;
+            } else {
+                return this.testData;
+            }
+        },
+        filterRegex: function filterRegex() {
+            return new RegExp(this.filter + "*", 'i');
+        }
+    }
+});
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__("./resources/assets/js/app.js");
-module.exports = __webpack_require__("./resources/assets/sass/app.scss");
+module.exports = __webpack_require__("./resources/assets/js/pages/characteristics/index.js");
 
 
 /***/ })

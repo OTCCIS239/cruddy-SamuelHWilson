@@ -7,58 +7,19 @@
     <body>
         <div id="main">
             <v-app>
-                <v-navigation-drawer v-model='drawer' app>
-                    <v-toolbar flat>
-                        <v-toolbar-title>Dashboard</v-toolbar-title>
-                    </v-toolbar>
-                    <v-list subheader>
-                        <!-- Header -->
-                        <v-subheader>Data Management</v-subheader>
-
-                        <!-- Standard Crud links. Pulled from array in app.js -->
-                        <v-list-group v-for="res in navResources" v-model='res.active' >
-                            <v-list-tile slot="activator" avatar>
-                                <v-avatar>
-                                     <i class="fas fa-lg" v-bind:class="'fa-' + res.faIcon" ></i> 
-                                </v-avatar>
-                                <v-list-tile-content>
-                                    <v-list-tile-title>Manage @{{ res.name }}s</v-list-tile-title>
-                                </v-list-tile-content>
-                            </v-list-tile>
-                            <v-list-tile v-bind:href="res.route">
-                                <v-list-tile-content>
-                                    <v-list-tile-title>Browse all @{{ res.name }}s</v-list-tile-title>
-                                </v-list-tile-content>
-                            </v-list-tile>
-                            <v-list-tile v-bind:href="res.route + '/create'">
-                                <v-list-tile-content>
-                                    <v-list-tile-title>Create a @{{ res.name }}</v-list-tile-title>
-                                </v-list-tile-content>
-                            </v-list-tile>
-                        </v-list-group>
-
-                        <!-- Single page Crud links -->
-                        <v-list-tile avatar href="/characteristics">
-                            <v-avatar>
-                                <i class="fas fa-lg fa-sticky-note"></i> 
-                            </v-avatar>
-                            <v-list-tile-content>
-                                <v-list-tile-title>Manage Characteristics</v-list-tile-title>
-                            </v-list-tile-content>
-                        </v-list-tile>
-                    </v-list>
-                </v-navigation-drawer>
+                <v-main-nav :drawer='drawer'></v-main-nav>
                 <v-toolbar color="indigo" dark fixed app>
                     <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
                     <v-toolbar-title>Good Music 2.0</v-toolbar-title>
                 </v-toolbar>
                 <v-content>
-                    <div style="background-color:red"> @yield('content') </div>
-                    <v-btn color="success">Test</v-btn>
+                    <v-container>
+                        @yield('content')
+                    </v-container>                        
                 </v-content>
             </v-app>
         </div>
 
-        <script src="/js/app.js"></script>
+        @yield('vue-inst')
     </body>
 </html>
