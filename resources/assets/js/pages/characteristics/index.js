@@ -13,7 +13,7 @@ Vue.component(
 );
 Vue.component(
     'v-editable-char',
-    require('../../components/EditableChar.vue')
+    require('../../components/SelectableChar.vue')
 );
 
 const app = new Vue({

@@ -4,7 +4,7 @@
         <v-chip v-if='isEditing'  
                 :color='color'
                 text-color="white"
-                v-on:click="SmartSelect">
+                v-on:click='SmartSelect'>
             {{this.char.name}} 
             <div v-show='!isSelected'><i class='fas fa-lg ml-2 fa-times-circle' ></i></div>
             <div  v-show='isSelected'><i class='fas fa-lg ml-2 fa-undo-alt'></i></div>
