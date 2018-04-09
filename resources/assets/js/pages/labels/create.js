@@ -25,18 +25,11 @@ const app = new Vue({
     data: {
         drawer: false,
         showAddArtist: false,
-        testData: [
-            { name: 'Droeloe', miscCount: 5, path: '#' },
-            { name: 'Illenium', miscCount: 3, path: '#' }
+        addedArtists: [
+            
         ],
-        testTracks: [
-            { name: 'Lines of the Broken', artists: [ {name:'Droeloe'}, {name:'San Holo'} ], vocalists: [ {name:'_CUT'} ], chars: ['Thoughtful Progression', 'Hype'] },
-            { name: 'Lines of the Broken', artists: [ {name:'Droeloe'}, {name:'San Holo'} ], vocalists: [ {name:'_CUT'} ], chars: ['Thoughtful Progression', 'Hype'] },
-            { name: 'Lines of the Broken', artists: [ {name:'Droeloe'}, {name:'San Holo'} ], vocalists: [ {name:'_CUT'} ], chars: ['Thoughtful Progression', 'Hype'] },
-            { name: 'Lines of the Broken', artists: [ {name:'Droeloe'}, {name:'San Holo'} ], vocalists: [ {name:'_CUT'} ], chars: ['Thoughtful Progression', 'Hype'] },
-            { name: 'Lines of the Broken', artists: [ {name:'Droeloe'}, {name:'San Holo'} ], vocalists: [ {name:'_CUT'} ], chars: ['Thoughtful Progression', 'Hype'] },
-            { name: 'Lines of the Broken', artists: [ {name:'Droeloe'}, {name:'San Holo'} ], vocalists: [ {name:'_CUT'} ], chars: ['Thoughtful Progression', 'Hype'] },
-            { name: 'Lines of the Broken', artists: [ {name:'Droeloe'}, {name:'San Holo'} ], vocalists: [ {name:'_CUT'} ], chars: ['Thoughtful Progression', 'Hype'] }
+        addedTracks: [
+            
         ]
     },
     methods: {

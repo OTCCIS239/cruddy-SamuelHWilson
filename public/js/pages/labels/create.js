@@ -30741,8 +30741,8 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     data: {
         drawer: false,
         showAddArtist: false,
-        testData: [{ name: 'Droeloe', miscCount: 5, path: '#' }, { name: 'Illenium', miscCount: 3, path: '#' }],
-        testTracks: [{ name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }, { name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }, { name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }, { name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }, { name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }, { name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }, { name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }]
+        addedArtists: [],
+        addedTracks: []
     },
     methods: {
         AddArtist: function AddArtist(name) {
