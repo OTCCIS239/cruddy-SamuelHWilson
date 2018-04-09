@@ -3,10 +3,12 @@
     "/js/pages/labels/create.js": "/js/pages/labels/create.js?id=db50d75b8442c611df62",
     "/js/pages/collections/show.js": "/js/pages/collections/show.js?id=7d594f1785527f284bbd",
     "/js/pages/collections/create.js": "/js/pages/collections/create.js?id=36cc032e3e8b5db0801b",
-    "/js/pages/artists/show.js": "/js/pages/artists/show.js?id=35073b7cb862dfa05f41",
-    "/js/pages/artists/create.js": "/js/pages/artists/create.js?id=b7c28f21085d285b9f8a",
-    "/js/pages/characteristics/index.js": "/js/pages/characteristics/index.js?id=593e6febf47767f8af1b",
+    "/js/pages/artists/show.js": "/js/pages/artists/show.js?id=6630fecc15bdd4f7ee56",
+    "/js/pages/artists/create.js": "/js/pages/artists/create.js?id=16889370652cc3a1be98",
+    "/js/pages/labels/index.js": "/js/pages/labels/index.js?id=b0b6015402e6e05c504e",
+    "/js/pages/collections/index.js": "/js/pages/collections/index.js?id=d1916acb2d9b6e106d64",
+    "/js/pages/artists/index.js": "/js/pages/artists/index.js?id=851238a77c0949ef6369",
+    "/js/pages/characteristics/index.js": "/js/pages/characteristics/index.js?id=94972ed57bb62953886b",
     "/js/app.js": "/js/app.js?id=0b997082c6ed95bbf1c7",
-    "/css/app.css": "/css/app.css?id=eb0ae5303d79e9603823",
-    "/js/pages/labels/index.js": "/js/pages/labels/index.js?id=b0b6015402e6e05c504e"
+    "/css/app.css": "/css/app.css?id=eb0ae5303d79e9603823"
 }
