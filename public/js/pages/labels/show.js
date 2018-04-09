@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -30717,7 +30717,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ "./resources/assets/js/pages/labels/create.js":
+/***/ "./resources/assets/js/pages/labels/show.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30741,8 +30741,8 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     data: {
         drawer: false,
         showAddArtist: false,
-        testData: [{ name: 'Droeloe', miscCount: 5, path: '#' }, { name: 'Illenium', miscCount: 3, path: '#' }],
-        testTracks: [{ name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }, { name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }, { name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }, { name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }, { name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }, { name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }, { name: 'Lines of the Broken', artists: [{ name: 'Droeloe' }, { name: 'San Holo' }], vocalists: [{ name: '_CUT' }], chars: ['Thoughtful Progression', 'Hype'] }]
+        signedArtists: [{ name: 'Droeloe', miscCount: 5, path: '#' }],
+        publishedTracks: [{ name: 'zZz', artists: [{ name: 'Droeloe' }], vocalists: [], chars: ['Unique Sampling', 'Thoughtful Progression'] }]
     },
     methods: {
         AddArtist: function AddArtist(name) {
@@ -30756,10 +30756,10 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./resources/assets/js/pages/labels/create.js");
+module.exports = __webpack_require__("./resources/assets/js/pages/labels/show.js");
 
 
 /***/ })

@@ -28,7 +28,7 @@
         </div>
 
         <!-- Option to add new track. Only shows when specified. -->
-        <v-btn class='green lighten-3'><i class='fas fa-plus fa-lg mr-2'></i>Add Track</v-btn>
+        <v-btn v-if='showNew'><i class='fas fa-plus fa-lg mr-2'></i>Add Track</v-btn>
     </div>
 </template>
 
@@ -56,21 +56,20 @@
         methods: {
             OneLiner: function(track) {
                 var s = ''
-                console.log(track)
                 s += track.artists[0].name
                 for (var i = 1; i < track.artists.length; i++) {
                     s += ' x ' + track.artists[i].name
                 }
                 s += ' - '
                 s += track.name
-                s+= ' (ft. '
                 if (track.vocalists.length > 0) {
+                    s+= ' (ft. '
                     s += track.vocalists[0].name
                     for (var i = 1; i < track.vocalists.length; i++) {
                         s += ', ' + track.vocalists[i].name
                     }
+                    s += ')'
                 }
-                s += ')'
 
                 return s
             }

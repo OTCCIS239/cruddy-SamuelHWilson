@@ -1,7 +1,7 @@
 <template>
     <v-dialog v-model='show' max-width="500px" persistent>
         <v-card>
-            <v-card-title class='title'>Pick an {{ capEntName }}</v-card-title>
+            <v-card-title class='title'>{{ capEntName }} Select</v-card-title>
             <v-card-text>
                 <p>Type (at least) three letters of the {{ entName }}'s name to search.</p>
                 <v-text-field 

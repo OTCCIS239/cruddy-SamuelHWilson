@@ -9,11 +9,11 @@ Vue.component(
 
 Vue.component(
     'v-generics-summary',
-    require('../../components/artists/GenericsSummary.vue')
+    require('../../components/generics/GenericsSummary.vue')
 )
 Vue.component(
     'v-entity-select-dialog',
-    require('../../components/artists/EntitySelectDialog.vue')
+    require('../../components/generics/GenericSelectDialog.vue')
 )
 Vue.component(
     'v-tracks-summary',
