@@ -13,7 +13,7 @@ class LabelsController extends Controller
      */
     public function index()
     {
-        
+        return view('labels.index');
     }
 
     /**

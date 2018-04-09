@@ -1,11 +1,12 @@
 {
     "/js/pages/labels/show.js": "/js/pages/labels/show.js?id=59b5499335a69b9e7ab8",
     "/js/pages/labels/create.js": "/js/pages/labels/create.js?id=db50d75b8442c611df62",
-    "/js/pages/collections/show.js": "/js/pages/collections/show.js?id=a19dbc102771d90bcdd6",
-    "/js/pages/collections/create.js": "/js/pages/collections/create.js?id=8ef11d9daf675bb9cbc5",
-    "/js/pages/artists/show.js": "/js/pages/artists/show.js?id=2c61c9bb532c77e5d5cc",
-    "/js/pages/artists/create.js": "/js/pages/artists/create.js?id=41ff14bd8d50d50c70c4",
+    "/js/pages/collections/show.js": "/js/pages/collections/show.js?id=7d594f1785527f284bbd",
+    "/js/pages/collections/create.js": "/js/pages/collections/create.js?id=36cc032e3e8b5db0801b",
+    "/js/pages/artists/show.js": "/js/pages/artists/show.js?id=35073b7cb862dfa05f41",
+    "/js/pages/artists/create.js": "/js/pages/artists/create.js?id=b7c28f21085d285b9f8a",
     "/js/pages/characteristics/index.js": "/js/pages/characteristics/index.js?id=593e6febf47767f8af1b",
     "/js/app.js": "/js/app.js?id=0b997082c6ed95bbf1c7",
-    "/css/app.css": "/css/app.css?id=eb0ae5303d79e9603823"
+    "/css/app.css": "/css/app.css?id=eb0ae5303d79e9603823",
+    "/js/pages/labels/index.js": "/js/pages/labels/index.js?id=b0b6015402e6e05c504e"
 }
