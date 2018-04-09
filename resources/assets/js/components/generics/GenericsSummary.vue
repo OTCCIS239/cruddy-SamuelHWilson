@@ -23,7 +23,7 @@ export default {
                     <i class='fas fa-ellipsis-h grey--text'></i>
                 </v-list-tile-avatar>
                 <v-list-tile-content class='grey--text'>
-                    <v-list-tile-title>No {{ capEntName + 's' }} Found</v-list-tile-title>
+                    <v-list-tile-title>No {{ capEntName + 's' }} Here</v-list-tile-title>
                     <v-list-tile-sub-title>Not yet anyways.</v-list-tile-sub-title>
                 </v-list-tile-content>
             </v-list-tile>

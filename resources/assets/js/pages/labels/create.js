@@ -28,6 +28,10 @@ const app = new Vue({
         addedArtists: [
             
         ],
+        searchableArtists: [
+            { name: 'Droeloe', miscCount: 5, path: '#' },
+            { name: 'Illenium', miscCount: 3, path: '#' }
+        ],
         addedTracks: [
             
         ]

@@ -151,6 +151,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -206,6 +207,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         capEntName: function capEntName() {
             return this.entName.substring(0, 1).toUpperCase() + this.entName.substring(1);
+        },
+        testingNames: function testingNames() {
+            var names = '';
+            this.allEntities.forEach(function (entity) {
+                names += entity.name + ', ';
+            });
+            return names;
         }
     }
 });
@@ -1375,7 +1383,7 @@ var render = function() {
                     { staticClass: "grey--text" },
                     [
                       _c("v-list-tile-title", [
-                        _vm._v("No " + _vm._s(_vm.capEntName + "s") + " Found")
+                        _vm._v("No " + _vm._s(_vm.capEntName + "s") + " Here")
                       ]),
                       _vm._v(" "),
                       _c("v-list-tile-sub-title", [_vm._v("Not yet anyways.")])
@@ -1538,6 +1546,10 @@ var render = function() {
                     _vm._s(_vm.entName) +
                     "'s name to search."
                 )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticStyle: { "font-weight": "bold" } }, [
+                _vm._v("Adam: Try one of these: " + _vm._s(_vm.testingNames))
               ]),
               _vm._v(" "),
               _c("v-text-field", {
@@ -30742,6 +30754,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         drawer: false,
         showAddArtist: false,
         addedArtists: [],
+        searchableArtists: [{ name: 'Droeloe', miscCount: 5, path: '#' }, { name: 'Illenium', miscCount: 3, path: '#' }],
         addedTracks: []
     },
     methods: {

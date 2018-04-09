@@ -4,6 +4,7 @@
             <v-card-title class='title'>{{ capEntName }} Select</v-card-title>
             <v-card-text>
                 <p>Type (at least) three letters of the {{ entName }}'s name to search.</p>
+                <p style='font-weight:bold;'>Adam: Try one of these: {{testingNames}}</p>
                 <v-text-field 
                     label="Search by Name"
                     v-model='filter'
@@ -71,6 +72,13 @@
             },
             capEntName: function() {
                 return this.entName.substring(0, 1).toUpperCase() + this.entName.substring(1)
+            },
+            testingNames: function() {
+                var names = ''
+                this.allEntities.forEach(entity => {
+                    names += entity.name + ', '
+                })
+                return names
             }
         }
     }
