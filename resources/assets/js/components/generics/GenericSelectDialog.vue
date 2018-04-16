@@ -1,74 +1,34 @@
-<!-- Made to summarize any entity with: 1) a name 2) a picture and 3) any countable quality.<template>
-     This includes Artists, Vocalists (A subset of artist), Labels, and Albums -->
-</template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style>
-
-</style>
-
-
 <template>
-    <v-list two-line>
-        <!-- Only shows up if array is empty. -->
-        <div v-if='isEmpty'>
-            <v-divider></v-divider>
-            <v-list-tile avatar>
-                <v-list-tile-avatar>
-                    <i class='fas fa-ellipsis-h grey--text'></i>
-                </v-list-tile-avatar>
-                <v-list-tile-content class='grey--text'>
-                    <v-list-tile-title>No {{ capEntName + 's' }} Here</v-list-tile-title>
-                    <v-list-tile-sub-title>Not yet anyways.</v-list-tile-sub-title>
-                </v-list-tile-content>
-            </v-list-tile>
-        </div>
-
-        <!-- Shows all entities in array. -->
-        <div v-for='entity in entities' :key='entity.name'>
-            <v-divider></v-divider>
-            <v-list-tile avatar @click='$emit(triggerEvent, entity.name)' >
-                <v-list-tile-avatar>
-                    <img src="https://via.placeholder.com/200x200">
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                    <v-list-tile-title>{{ entity.name }}</v-list-tile-title>
-                    <v-list-tile-sub-title><span class='text--primary'><span class='body-2' :class='GradeColor(entity.miscCount)'>{{ entity.miscCount }}</span> {{ countString }}</span></v-list-tile-sub-title>
-                </v-list-tile-content>
-            </v-list-tile>
-        </div>
-
-        <!-- Add new entity. Only shows up if specified. -->
-        <div v-if='showNew'>
-            <v-divider></v-divider>
-            <v-list-tile avatar @click='$emit("request-add-" + entName)'>
-                <v-list-tile-avatar>
-                    <i class='fas fa-plus fa-lg'></i>
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                    <v-list-tile-title>Add {{ capEntName }}</v-list-tile-title>
-                    <v-list-tile-sub-title><span class='text--primary'>existing, or new</span></v-list-tile-sub-title>
-                </v-list-tile-content>
-            </v-list-tile>
-        </div>
-    </v-list>
+    <v-dialog v-model='show' max-width="500px" persistent>
+        <v-card>
+            <v-card-title class='title'>{{ capEntName }} Select</v-card-title>
+            <v-card-text>
+                <p>Type (at least) three letters of the {{ entName }}'s name to search.</p>
+                <p style='font-weight:bold;'>Adam: Try one of these: {{testingNames}}</p>
+                <v-text-field 
+                    label="Search by Name"
+                    v-model='filter'
+                ></v-text-field>
+                <v-generics-summary :entities='filteredEntities' :count-string='countString' :ent-name='entName' :trigger-event='"add-entity"' v-on:add-entity='ChainAddEntity'></v-generics-summary>
+            </v-card-text>
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue darken-1" flat @click.native="$emit('close-' + entName + '-dialog')">Close</v-btn>
+            </v-card-actions>
+        </v-card>
+    </v-dialog>
 </template>
 
 <script>
     export default {
-        props: {
-            entities: {
+       props: {
+            allEntities: {
                 type: Array,
                 default: function() {
                     return []
                 }
             },
-            showNew: {
+            show: {
                 type: Boolean,
                 default: false
             },
@@ -85,20 +45,40 @@ export default {
                 default: 'tracks curated.'
             }
         },
+        data: function() {
+            return {
+                filter: ''
+            }
+        },
         methods: {
-            GradeColor: function(count) {
-                var color = 'brown--text darken-4'
-                if (count > 1) color = 'grey--text darken-1'
-                if (count > 3) color = 'amber--text accent-4'
-                return color
+            ChainAddEntity: function(name) {
+                this.$emit('add-' + this.entName, name)
             }
         },
         computed: {
-            isEmpty: function() {
-                return this.entities.length == 0
+            filterRegex: function() {
+                return new RegExp(this.filter + '*', 'i')
+            },
+            filteredEntities: function() {
+                if (this.filter.length > 2) {
+                    var a = []
+                    this.allEntities.forEach(entity => {
+                        if (entity.name.match(this.filterRegex)) a.push(entity)
+                    })
+                    return a
+                }else {
+                    return []
+                }
             },
             capEntName: function() {
                 return this.entName.substring(0, 1).toUpperCase() + this.entName.substring(1)
+            },
+            testingNames: function() {
+                var names = ''
+                this.allEntities.forEach(entity => {
+                    names += entity.name + ', '
+                })
+                return names
             }
         }
     }
