@@ -178,20 +178,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -200,10 +186,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             default: function _default() {
                 return [];
             }
-        },
-        showNew: {
-            type: Boolean,
-            default: false
         },
         triggerEvent: {
             type: String,
@@ -1142,51 +1124,7 @@ var render = function() {
           ],
           1
         )
-      }),
-      _vm._v(" "),
-      _vm.showNew
-        ? _c(
-            "div",
-            [
-              _c("v-divider"),
-              _vm._v(" "),
-              _c(
-                "v-list-tile",
-                {
-                  attrs: { avatar: "" },
-                  on: {
-                    click: function($event) {
-                      _vm.$emit("request-add-" + _vm.entName)
-                    }
-                  }
-                },
-                [
-                  _c("v-list-tile-avatar", [
-                    _c("i", { staticClass: "fas fa-plus fa-lg" })
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-tile-content",
-                    [
-                      _c("v-list-tile-title", [
-                        _vm._v("Add " + _vm._s(_vm.capEntName))
-                      ]),
-                      _vm._v(" "),
-                      _c("v-list-tile-sub-title", [
-                        _c("span", { staticClass: "text--primary" }, [
-                          _vm._v("existing, or new")
-                        ])
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        : _vm._e()
+      })
     ],
     2
   )

@@ -1,14 +1,6 @@
 @extends('layouts.dashboard.crud')
 
 @section('content')
-<!-- Dialog -->
-<v-entity-select-dialog :show='showAddArtist' 
-                        :ent-name='"artist"'
-                        :all-entities='searchableArtists' 
-                        :count-string='"curated tracks."'  
-                        v-on:add-artist='showAddArtist = false' 
-                        v-on:close-artist-dialog='showAddArtist = false'>
-</v-entity-select-dialog>
 
 <v-layout row>
     <v-flex sm4>

@@ -9,7 +9,7 @@ Vue.component(
 
 Vue.component(
     'v-generics-summary',
-    require('../../components/generics/GenericsSummary.vue')
+    require('../../components/experimental/GenericsSummary.vue')
 )
 Vue.component(
     'v-entity-select-dialog',

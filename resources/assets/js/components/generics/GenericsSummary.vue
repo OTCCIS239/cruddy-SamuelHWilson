@@ -42,20 +42,6 @@ export default {
                 </v-list-tile-content>
             </v-list-tile>
         </div>
-
-        <!-- Add new entity. Only shows up if specified. -->
-        <div v-if='showNew'>
-            <v-divider></v-divider>
-            <v-list-tile avatar @click='$emit("request-add-" + entName)'>
-                <v-list-tile-avatar>
-                    <i class='fas fa-plus fa-lg'></i>
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                    <v-list-tile-title>Add {{ capEntName }}</v-list-tile-title>
-                    <v-list-tile-sub-title><span class='text--primary'>existing, or new</span></v-list-tile-sub-title>
-                </v-list-tile-content>
-            </v-list-tile>
-        </div>
     </v-list>
 </template>
 
@@ -67,10 +53,6 @@ export default {
                 default: function() {
                     return []
                 }
-            },
-            showNew: {
-                type: Boolean,
-                default: false
             },
             triggerEvent: {
                 type: String,
