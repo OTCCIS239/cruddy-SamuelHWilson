@@ -2,13 +2,13 @@
 
 @section('content')
 <!-- Dialog -->
-<v-entity-select-dialog :show='showAddArtist' 
+<!-- <v-entity-select-dialog :show='showAddArtist' 
                         :ent-name='"artist"'
                         :all-entities='searchableArtists' 
                         :count-string='"curated tracks."'  
                         v-on:add-artist='showAddArtist = false' 
                         v-on:close-artist-dialog='showAddArtist = false'>
-</v-entity-select-dialog>
+</v-entity-select-dialog> -->
 
 <v-layout row>
     <v-flex sm4>
@@ -21,7 +21,8 @@
             <v-text-field style='width:100%' label='Label Name' class='mt-2'></v-text-field>
             <h3 class='subheading text-center mt-3'>Signed Artists</h3>
             
-            <v-generics-summary :ent-name='"artist"' show-new class='mt-1' v-on:request-add-artist='showAddArtist = true'></v-generics-summary>
+            <!-- <v-generics-summary :ent-name='"artist"' show-new class='mt-1' v-on:request-add-artist='showAddArtist = true'></v-generics-summary> -->
+            <v-generic-select :ent-name='"artist"' :searchable-entities='searchableArtists' class='mt-1'></v-generics-summary>
         </div>
     </v-flex>
     <v-flex sm8>

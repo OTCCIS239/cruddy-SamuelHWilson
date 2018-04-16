@@ -126,6 +126,75 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/experimental/GenericSelect.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        searchableEntities: {
+            type: Array,
+            default: function _default() {
+                return [];
+            }
+        },
+        addedEntities: {
+            type: Array,
+            default: function _default() {
+                return [];
+            }
+        },
+        triggerEvent: {
+            type: String,
+            default: 'nav-to-artist'
+        },
+        entName: {
+            type: String,
+            default: 'artist'
+        },
+        countString: {
+            type: String,
+            default: 'tracks curated.'
+        }
+    },
+    computed: {
+        searchableNames: function searchableNames() {
+            var names = [];
+            this.searchableEntities.forEach(function (entity) {
+                names.push({ 'text': entity.name, 'value': entity.id });
+            });
+            return names;
+        },
+        capEntName: function capEntName() {
+            return this.entName.substring(0, 1).toUpperCase() + this.entName.substring(1);
+        }
+    },
+    methods: {
+        AddEntity: function AddEntity(id) {
+            this.addedEntities.push(this.searchableEntities.find(function (entity) {
+                return entity.id = id;
+            }));
+        }
+    }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/generics/GenericSelectDialog.vue":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1237,6 +1306,50 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-4ab18683", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-62c212b6\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/experimental/GenericSelect.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("v-select", {
+        attrs: {
+          items: _vm.searchableNames,
+          label: "Add " + _vm.capEntName,
+          autocomplete: ""
+        },
+        on: { change: _vm.AddEntity }
+      }),
+      _vm._v(" "),
+      _c("p", [_vm._v("test")]),
+      _vm._v(" "),
+      _c("v-generics-summary", {
+        attrs: {
+          "ent-name": _vm.entName,
+          "count-string": _vm.countString,
+          entities: _vm.addedEntities
+        }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-62c212b6", module.exports)
   }
 }
 
@@ -30180,6 +30293,54 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/experimental/GenericSelect.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/experimental/GenericSelect.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-62c212b6\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/experimental/GenericSelect.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\experimental\\GenericSelect.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-62c212b6", Component.options)
+  } else {
+    hotAPI.reload("data-v-62c212b6", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/generics/GenericSelectDialog.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30339,6 +30500,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuet
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-main-nav', __webpack_require__("./resources/assets/js/components/MainNav.vue"));
 
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-generic-select', __webpack_require__("./resources/assets/js/components/experimental/GenericSelect.vue"));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-generics-summary', __webpack_require__("./resources/assets/js/components/generics/GenericsSummary.vue"));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-entity-select-dialog', __webpack_require__("./resources/assets/js/components/generics/GenericSelectDialog.vue"));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-tracks-summary', __webpack_require__("./resources/assets/js/components/tracks/TracksSummary.vue"));
@@ -30349,7 +30511,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         drawer: false,
         showAddArtist: false,
         addedArtists: [],
-        searchableArtists: [{ name: 'Droeloe', miscCount: 5, path: '#' }, { name: 'Illenium', miscCount: 3, path: '#' }],
+        searchableArtists: [{ name: 'Droeloe', miscCount: 5, path: '#', id: '1' }, { name: 'Illenium', miscCount: 3, path: '#', id: '2' }],
         addedTracks: []
     },
     methods: {

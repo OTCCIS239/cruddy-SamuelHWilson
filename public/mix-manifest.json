@@ -1,14 +1,14 @@
 {
+    "/js/pages/labels/create.js": "/js/pages/labels/create.js?id=2297c865e24246733429",
     "/js/pages/labels/show.js": "/js/pages/labels/show.js?id=2beea9fabac68c1fe805",
-    "/js/pages/labels/create.js": "/js/pages/labels/create.js?id=fd0003dacf284a0c9a44",
     "/js/pages/collections/show.js": "/js/pages/collections/show.js?id=fdfd2131ea70cea7eb42",
     "/js/pages/collections/create.js": "/js/pages/collections/create.js?id=efd9c55acc28cbb32a5b",
     "/js/pages/artists/show.js": "/js/pages/artists/show.js?id=00b38930952ce138342c",
     "/js/pages/artists/create.js": "/js/pages/artists/create.js?id=f6ac05158972b2fe6985",
+    "/js/pages/characteristics/index.js": "/js/pages/characteristics/index.js?id=94972ed57bb62953886b",
     "/js/pages/labels/index.js": "/js/pages/labels/index.js?id=0f86f239d098ac6c74e6",
     "/js/pages/collections/index.js": "/js/pages/collections/index.js?id=083dfce862042a9b68aa",
     "/js/pages/artists/index.js": "/js/pages/artists/index.js?id=72d6f400a6970d01334f",
-    "/js/pages/characteristics/index.js": "/js/pages/characteristics/index.js?id=94972ed57bb62953886b",
     "/js/app.js": "/js/app.js?id=0b997082c6ed95bbf1c7",
     "/css/app.css": "/css/app.css?id=eb0ae5303d79e9603823"
 }

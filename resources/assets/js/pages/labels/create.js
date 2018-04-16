@@ -8,6 +8,10 @@ Vue.component(
 )
 
 Vue.component(
+    'v-generic-select',
+    require('../../components/experimental/GenericSelect.vue')
+)
+Vue.component(
     'v-generics-summary',
     require('../../components/generics/GenericsSummary.vue')
 )
@@ -29,8 +33,8 @@ const app = new Vue({
             
         ],
         searchableArtists: [
-            { name: 'Droeloe', miscCount: 5, path: '#' },
-            { name: 'Illenium', miscCount: 3, path: '#' }
+            { name: 'Droeloe', miscCount: 5, path: '#', id:'1' },
+            { name: 'Illenium', miscCount: 3, path: '#', id:'2' }
         ],
         addedTracks: [
             
