@@ -13,7 +13,7 @@ Vue.component(
 )
 Vue.component(
     'v-generics-summary',
-    require('../../components/generics/GenericsSummary.vue')
+    require('../../components/experimental/GenericsSummary.vue')
 )
 Vue.component(
     'v-entity-select-dialog',
@@ -33,8 +33,8 @@ const app = new Vue({
             
         ],
         searchableArtists: [
-            { name: 'Droeloe', miscCount: 5, path: '#', id:'1' },
-            { name: 'Illenium', miscCount: 3, path: '#', id:'2' }
+            { name: 'Droeloe', miscCount: 5, path: '#', id:'0' },
+            { name: 'Illenium', miscCount: 3, path: '#', id:'1' }
         ],
         addedTracks: [
             

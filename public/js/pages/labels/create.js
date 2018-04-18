@@ -172,23 +172,132 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             default: 'tracks curated.'
         }
     },
+    data: function data() {
+        return {
+            selectItems: []
+        };
+    },
     computed: {
-        searchableNames: function searchableNames() {
-            var names = [];
-            this.searchableEntities.forEach(function (entity) {
-                names.push({ 'text': entity.name, 'value': entity.id });
-            });
-            return names;
-        },
         capEntName: function capEntName() {
             return this.entName.substring(0, 1).toUpperCase() + this.entName.substring(1);
+        }
+    },
+    watch: {
+        searchableEntities: function searchableEntities() {
+            var names = [];
+            this.searchableEntities.forEach(function (entity) {
+                names.push({ 'text': entity.name, 'value': entity.id, 'disabled': false });
+            });
+            this.selectItems = names;
         }
     },
     methods: {
         AddEntity: function AddEntity(id) {
             this.addedEntities.push(this.searchableEntities.find(function (entity) {
-                return entity.id = id;
+                return entity.id == id;
             }));
+            this.selectItems.find(function (item) {
+                return item.id == id;
+            }).disabled = true;
+        }
+    }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/experimental/GenericsSummary.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        entities: {
+            type: Array,
+            default: function _default() {
+                return [];
+            }
+        },
+        showNew: {
+            type: Boolean,
+            default: false
+        },
+        triggerEvent: {
+            type: String,
+            default: 'nav-to-artist'
+        },
+        entName: {
+            type: String,
+            default: 'artist'
+        },
+        countString: {
+            type: String,
+            default: 'tracks curated.'
+        }
+    },
+    methods: {
+        GradeColor: function GradeColor(count) {
+            var color = 'brown--text darken-4';
+            if (count > 1) color = 'grey--text darken-1';
+            if (count > 3) color = 'amber--text accent-4';
+            return color;
+        }
+    },
+    computed: {
+        isEmpty: function isEmpty() {
+            return this.entities.length == 0;
+        },
+        capEntName: function capEntName() {
+            return this.entName.substring(0, 1).toUpperCase() + this.entName.substring(1);
         }
     }
 });
@@ -283,105 +392,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 names += entity.name + ', ';
             });
             return names;
-        }
-    }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/generics/GenericsSummary.vue":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: {
-        entities: {
-            type: Array,
-            default: function _default() {
-                return [];
-            }
-        },
-        showNew: {
-            type: Boolean,
-            default: false
-        },
-        triggerEvent: {
-            type: String,
-            default: 'nav-to-artist'
-        },
-        entName: {
-            type: String,
-            default: 'artist'
-        },
-        countString: {
-            type: String,
-            default: 'tracks curated.'
-        }
-    },
-    methods: {
-        GradeColor: function GradeColor(count) {
-            var color = 'brown--text darken-4';
-            if (count > 1) color = 'grey--text darken-1';
-            if (count > 3) color = 'amber--text accent-4';
-            return color;
-        }
-    },
-    computed: {
-        isEmpty: function isEmpty() {
-            return this.entities.length == 0;
-        },
-        capEntName: function capEntName() {
-            return this.entName.substring(0, 1).toUpperCase() + this.entName.substring(1);
         }
     }
 });
@@ -1034,6 +1044,163 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-0729fd4d\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/experimental/GenericsSummary.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-list",
+    { attrs: { "two-line": "" } },
+    [
+      _vm.isEmpty
+        ? _c(
+            "div",
+            [
+              _c("v-divider"),
+              _vm._v(" "),
+              _c(
+                "v-list-tile",
+                { attrs: { avatar: "" } },
+                [
+                  _c("v-list-tile-avatar", [
+                    _c("i", { staticClass: "fas fa-ellipsis-h grey--text" })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-tile-content",
+                    { staticClass: "grey--text" },
+                    [
+                      _c("v-list-tile-title", [
+                        _vm._v("No " + _vm._s(_vm.capEntName + "s") + " Here")
+                      ]),
+                      _vm._v(" "),
+                      _c("v-list-tile-sub-title", [_vm._v("Not yet anyways.")])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.entities, function(entity) {
+        return _c(
+          "div",
+          { key: entity.id },
+          [
+            _c("v-divider"),
+            _vm._v(" "),
+            _c(
+              "v-list-tile",
+              {
+                attrs: { avatar: "" },
+                on: {
+                  click: function($event) {
+                    _vm.$emit(_vm.triggerEvent, entity.id)
+                  }
+                }
+              },
+              [
+                _c("v-list-tile-avatar", [
+                  _c("img", {
+                    attrs: { src: "https://via.placeholder.com/200x200" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "v-list-tile-content",
+                  [
+                    _c("v-list-tile-title", [_vm._v(_vm._s(entity.name))]),
+                    _vm._v(" "),
+                    _c("v-list-tile-sub-title", [
+                      _c("span", { staticClass: "text--primary" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "body-2",
+                            class: _vm.GradeColor(entity.miscCount)
+                          },
+                          [_vm._v(_vm._s(entity.miscCount))]
+                        ),
+                        _vm._v(" " + _vm._s(_vm.countString))
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        )
+      }),
+      _vm._v(" "),
+      _vm.showNew
+        ? _c(
+            "div",
+            [
+              _c("v-divider"),
+              _vm._v(" "),
+              _c(
+                "v-list-tile",
+                {
+                  attrs: { avatar: "" },
+                  on: {
+                    click: function($event) {
+                      _vm.$emit("request-add-" + _vm.entName)
+                    }
+                  }
+                },
+                [
+                  _c("v-list-tile-avatar", [
+                    _c("i", { staticClass: "fas fa-plus fa-lg" })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-tile-content",
+                    [
+                      _c("v-list-tile-title", [
+                        _vm._v("Add " + _vm._s(_vm.capEntName))
+                      ]),
+                      _vm._v(" "),
+                      _c("v-list-tile-sub-title", [
+                        _c("span", { staticClass: "text--primary" }, [
+                          _vm._v("existing, or new")
+                        ])
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0729fd4d", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-441c8461\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/tracks/TracksSummary.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1323,7 +1490,7 @@ var render = function() {
     [
       _c("v-select", {
         attrs: {
-          items: _vm.searchableNames,
+          items: _vm.selectItems,
           label: "Add " + _vm.capEntName,
           autocomplete: ""
         },
@@ -1350,163 +1517,6 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-62c212b6", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-691f913e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/generics/GenericsSummary.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "v-list",
-    { attrs: { "two-line": "" } },
-    [
-      _vm.isEmpty
-        ? _c(
-            "div",
-            [
-              _c("v-divider"),
-              _vm._v(" "),
-              _c(
-                "v-list-tile",
-                { attrs: { avatar: "" } },
-                [
-                  _c("v-list-tile-avatar", [
-                    _c("i", { staticClass: "fas fa-ellipsis-h grey--text" })
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-tile-content",
-                    { staticClass: "grey--text" },
-                    [
-                      _c("v-list-tile-title", [
-                        _vm._v("No " + _vm._s(_vm.capEntName + "s") + " Here")
-                      ]),
-                      _vm._v(" "),
-                      _c("v-list-tile-sub-title", [_vm._v("Not yet anyways.")])
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._l(_vm.entities, function(entity) {
-        return _c(
-          "div",
-          { key: entity.name },
-          [
-            _c("v-divider"),
-            _vm._v(" "),
-            _c(
-              "v-list-tile",
-              {
-                attrs: { avatar: "" },
-                on: {
-                  click: function($event) {
-                    _vm.$emit(_vm.triggerEvent, entity.name)
-                  }
-                }
-              },
-              [
-                _c("v-list-tile-avatar", [
-                  _c("img", {
-                    attrs: { src: "https://via.placeholder.com/200x200" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c(
-                  "v-list-tile-content",
-                  [
-                    _c("v-list-tile-title", [_vm._v(_vm._s(entity.name))]),
-                    _vm._v(" "),
-                    _c("v-list-tile-sub-title", [
-                      _c("span", { staticClass: "text--primary" }, [
-                        _c(
-                          "span",
-                          {
-                            staticClass: "body-2",
-                            class: _vm.GradeColor(entity.miscCount)
-                          },
-                          [_vm._v(_vm._s(entity.miscCount))]
-                        ),
-                        _vm._v(" " + _vm._s(_vm.countString))
-                      ])
-                    ])
-                  ],
-                  1
-                )
-              ],
-              1
-            )
-          ],
-          1
-        )
-      }),
-      _vm._v(" "),
-      _vm.showNew
-        ? _c(
-            "div",
-            [
-              _c("v-divider"),
-              _vm._v(" "),
-              _c(
-                "v-list-tile",
-                {
-                  attrs: { avatar: "" },
-                  on: {
-                    click: function($event) {
-                      _vm.$emit("request-add-" + _vm.entName)
-                    }
-                  }
-                },
-                [
-                  _c("v-list-tile-avatar", [
-                    _c("i", { staticClass: "fas fa-plus fa-lg" })
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-tile-content",
-                    [
-                      _c("v-list-tile-title", [
-                        _vm._v("Add " + _vm._s(_vm.capEntName))
-                      ]),
-                      _vm._v(" "),
-                      _c("v-list-tile-sub-title", [
-                        _c("span", { staticClass: "text--primary" }, [
-                          _vm._v("existing, or new")
-                        ])
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        : _vm._e()
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-691f913e", module.exports)
   }
 }
 
@@ -30341,6 +30351,54 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/experimental/GenericsSummary.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/experimental/GenericsSummary.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-0729fd4d\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/experimental/GenericsSummary.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\experimental\\GenericsSummary.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0729fd4d", Component.options)
+  } else {
+    hotAPI.reload("data-v-0729fd4d", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/generics/GenericSelectDialog.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30378,54 +30436,6 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-f0f7ec9c", Component.options)
   } else {
     hotAPI.reload("data-v-f0f7ec9c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/generics/GenericsSummary.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
-/* script */
-var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/generics/GenericsSummary.vue")
-/* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-691f913e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/generics/GenericsSummary.vue")
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\generics\\GenericsSummary.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-691f913e", Component.options)
-  } else {
-    hotAPI.reload("data-v-691f913e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -30501,7 +30511,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuet
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-main-nav', __webpack_require__("./resources/assets/js/components/MainNav.vue"));
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-generic-select', __webpack_require__("./resources/assets/js/components/experimental/GenericSelect.vue"));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-generics-summary', __webpack_require__("./resources/assets/js/components/generics/GenericsSummary.vue"));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-generics-summary', __webpack_require__("./resources/assets/js/components/experimental/GenericsSummary.vue"));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-entity-select-dialog', __webpack_require__("./resources/assets/js/components/generics/GenericSelectDialog.vue"));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-tracks-summary', __webpack_require__("./resources/assets/js/components/tracks/TracksSummary.vue"));
 
@@ -30511,7 +30521,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         drawer: false,
         showAddArtist: false,
         addedArtists: [],
-        searchableArtists: [{ name: 'Droeloe', miscCount: 5, path: '#', id: '1' }, { name: 'Illenium', miscCount: 3, path: '#', id: '2' }],
+        searchableArtists: [{ name: 'Droeloe', miscCount: 5, path: '#', id: '0' }, { name: 'Illenium', miscCount: 3, path: '#', id: '1' }],
         addedTracks: []
     },
     methods: {

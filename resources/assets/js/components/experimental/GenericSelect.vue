@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-select
-            :items="searchableNames"
+            :items="selectItems"
             v-on:change='AddEntity'
             :label='"Add " + capEntName'
             autocomplete
@@ -39,23 +39,33 @@
                 default: 'tracks curated.'
             }
         },
+        data: function() {
+            return {
+                selectItems: []
+            }
+        },
         computed: {
-            searchableNames: function() {
-                var names = []
-                this.searchableEntities.forEach(function(entity) {
-                    names.push({ 'text': entity.name, 'value': entity.id})   
-                });
-                return names
-            },
             capEntName: function() {
                 return this.entName.substring(0, 1).toUpperCase() + this.entName.substring(1)
             }
         },
+        watch: {
+            searchableEntities: function() {
+                var names = []
+                this.searchableEntities.forEach(function(entity) {
+                    names.push({ 'text': entity.name, 'value': entity.id, 'disabled': false})   
+                });
+                this.selectItems = names
+            },
+        },
         methods: {
             AddEntity: function(id) {
                 this.addedEntities.push(this.searchableEntities.find(function(entity) {
-                    return entity.id = id
+                    return entity.id == id
                 }))
+                this.selectItems.find(function(item) {
+                    return item.id == id
+                }).disabled = true
             }
         }
     }

@@ -17,9 +17,9 @@
         </div>
 
         <!-- Shows all entities in array. -->
-        <div v-for='entity in entities' :key='entity.name'>
+        <div v-for='entity in entities' :key='entity.id'>
             <v-divider></v-divider>
-            <v-list-tile avatar @click='$emit(triggerEvent, entity.name)' >
+            <v-list-tile avatar @click='$emit(triggerEvent, entity.id)' >
                 <v-list-tile-avatar>
                     <img src="https://via.placeholder.com/200x200">
                 </v-list-tile-avatar>
