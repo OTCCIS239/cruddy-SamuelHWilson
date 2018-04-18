@@ -27,6 +27,10 @@
                     <v-list-tile-title>{{ entity.name }}</v-list-tile-title>
                     <v-list-tile-sub-title><span class='text--primary'><span class='body-2' :class='GradeColor(entity.miscCount)'>{{ entity.miscCount }}</span> {{ countString }}</span></v-list-tile-sub-title>
                 </v-list-tile-content>
+                <v-list-tile-avatar v-if='actionBtnIcon != ""'
+                                    @click='$emit(actionBtnEvent, entity.id)'>
+                    <i class='fas fa-lg' :class='"fa-" + actionBtnIcon'></i>
+                </v-list-tile-avatar>
             </v-list-tile>
         </div>
 
@@ -70,6 +74,14 @@
             countString: {
                 type: String,
                 default: 'tracks curated.'
+            },
+            actionBtnIcon: {
+                type: String,
+                default: ''
+            },
+            actionBtnEvent: {
+                type: String,
+                default: ''
             }
         },
         methods: {

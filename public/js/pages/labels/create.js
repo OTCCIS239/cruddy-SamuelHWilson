@@ -144,6 +144,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -174,31 +180,45 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            selectItems: []
+            selectedIDs: [],
+            selected: null
         };
     },
     computed: {
         capEntName: function capEntName() {
             return this.entName.substring(0, 1).toUpperCase() + this.entName.substring(1);
-        }
-    },
-    watch: {
-        searchableEntities: function searchableEntities() {
-            var names = [];
+        },
+        selectItems: function selectItems() {
+            var items = [];
             this.searchableEntities.forEach(function (entity) {
-                names.push({ 'text': entity.name, 'value': entity.id, 'disabled': false });
-            });
-            this.selectItems = names;
+                if (!this.selectedIDs.includes(entity.id)) {
+                    items.push({ 'text': entity.name, 'value': entity.id });
+                }
+            }, this);
+            return items;
+        },
+        selectedEntities: function selectedEntities() {
+            return this.searchableEntities.filter(function (entity) {
+                return this.selectedIDs.includes(entity.id);
+            }, this);
         }
     },
     methods: {
         AddEntity: function AddEntity(id) {
-            this.addedEntities.push(this.searchableEntities.find(function (entity) {
-                return entity.id == id;
-            }));
-            this.selectItems.find(function (item) {
-                return item.id == id;
-            }).disabled = true;
+            this.selectedIDs.push(id);
+            console.log(this.entName);
+            this.ClearValue();
+        },
+        RemoveEntity: function RemoveEntity(id) {
+            // TODO: Fix bug pushing name up into select, when entity is removed, sometimes.
+            this.selectedIDs.splice(this.selectedIDs.indexOf(id), 1);
+            this.ClearValue();
+        },
+        ClearValue: function ClearValue() {
+            //Workaround. TODO: Not this.
+            this.$nextTick(function () {
+                document.getElementById(this.entName).value = null;
+            });
         }
     }
 });
@@ -210,6 +230,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
 //
 //
 //
@@ -282,6 +306,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         countString: {
             type: String,
             default: 'tracks curated.'
+        },
+        actionBtnIcon: {
+            type: String,
+            default: ''
+        },
+        actionBtnEvent: {
+            type: String,
+            default: ''
         }
     },
     methods: {
@@ -1133,7 +1165,26 @@ var render = function() {
                     ])
                   ],
                   1
-                )
+                ),
+                _vm._v(" "),
+                _vm.actionBtnIcon != ""
+                  ? _c(
+                      "v-list-tile-avatar",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.$emit(_vm.actionBtnEvent, entity.id)
+                          }
+                        }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fas fa-lg",
+                          class: "fa-" + _vm.actionBtnIcon
+                        })
+                      ]
+                    )
+                  : _vm._e()
               ],
               1
             )
@@ -1492,19 +1543,21 @@ var render = function() {
         attrs: {
           items: _vm.selectItems,
           label: "Add " + _vm.capEntName,
-          autocomplete: ""
+          autocomplete: "",
+          id: _vm.entName
         },
         on: { change: _vm.AddEntity }
       }),
-      _vm._v(" "),
-      _c("p", [_vm._v("test")]),
       _vm._v(" "),
       _c("v-generics-summary", {
         attrs: {
           "ent-name": _vm.entName,
           "count-string": _vm.countString,
-          entities: _vm.addedEntities
-        }
+          entities: _vm.selectedEntities,
+          "action-btn-icon": "times-circle",
+          "action-btn-event": "remove-entity"
+        },
+        on: { "remove-entity": _vm.RemoveEntity }
       })
     ],
     1
