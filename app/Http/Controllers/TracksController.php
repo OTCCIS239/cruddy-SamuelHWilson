@@ -45,7 +45,7 @@ class TracksController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('tracks.show');
     }
 
     /**

@@ -13,7 +13,7 @@
             <v-text-field style='width:100%' label='Track Name' class='mt-2'></v-text-field>
             
             <h2 class='headline text-center mt-3'>Notable Characteristics</h2>
-            <v-char-select :chars='chars' :searchable-chars='chars'></v-char-select>          
+            <v-char-select :searchable-chars='chars'></v-char-select>          
         </div>
     </v-flex>
     <v-flex sm4>
@@ -27,10 +27,10 @@
     </v-flex>
     <v-flex sm4>
         <div class="pa-2 pl-5">
-            <h2 class='headline text-center mt-3'>[Word] Collections</h2>
+            <h2 class='headline text-center mt-3'>Housing Collections</h2>
             <v-generic-select :ent-name='"collection"' :searchable-entities='searchableCollections' class='mt-1'></v-generic-select>
             
-            <h2 class='headline text-center mt-3'>[Word] Labels</h2>            
+            <h2 class='headline text-center mt-3'>Publishing Labels</h2>            
             <v-generic-select :ent-name='"label"' :searchable-entities='searchableLabels' class='mt-1'></v-generic-select>
         </div>
     </v-flex>

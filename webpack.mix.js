@@ -23,5 +23,6 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .js('resources/assets/js/pages/artists/show.js', 'public/js/pages/artists/show.js')
    .js('resources/assets/js/pages/artists/index.js', 'public/js/pages/artists/index.js')
    .js('resources/assets/js/pages/tracks/create.js', 'public/js/pages/tracks/create.js')   
+   .js('resources/assets/js/pages/tracks/show.js', 'public/js/pages/tracks/show.js')   
    .sass('resources/assets/sass/app.scss', 'public/css')
    .version();
