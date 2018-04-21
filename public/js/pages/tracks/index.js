@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -121,199 +121,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             navResources: [{ name: 'Track', faIcon: 'headphones', route: "/tracks", active: false }, { name: 'Collection', faIcon: 'dot-circle', route: "/collections", active: false }, { name: 'Artist', faIcon: 'microphone', route: "/artists", active: false }, { name: 'Label', faIcon: 'volume-up', route: "/labels", active: false }]
         };
-    }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/generics/GenericSelectDialog.vue":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: {
-        allEntities: {
-            type: Array,
-            default: function _default() {
-                return [];
-            }
-        },
-        show: {
-            type: Boolean,
-            default: false
-        },
-        triggerEvent: {
-            type: String,
-            default: 'nav-to-artist'
-        },
-        entName: {
-            type: String,
-            default: 'artist'
-        },
-        countString: {
-            type: String,
-            default: 'tracks curated.'
-        }
-    },
-    data: function data() {
-        return {
-            filter: ''
-        };
-    },
-    methods: {
-        ChainAddEntity: function ChainAddEntity(name) {
-            this.$emit('add-' + this.entName, name);
-        }
-    },
-    computed: {
-        filterRegex: function filterRegex() {
-            return new RegExp(this.filter + '*', 'i');
-        },
-        filteredEntities: function filteredEntities() {
-            var _this = this;
-
-            if (this.filter.length > 2) {
-                var a = [];
-                this.allEntities.forEach(function (entity) {
-                    if (entity.name.match(_this.filterRegex)) a.push(entity);
-                });
-                return a;
-            } else {
-                return [];
-            }
-        },
-        capEntName: function capEntName() {
-            return this.entName.substring(0, 1).toUpperCase() + this.entName.substring(1);
-        },
-        testingNames: function testingNames() {
-            var names = '';
-            this.allEntities.forEach(function (entity) {
-                names += entity.name + ', ';
-            });
-            return names;
-        }
-    }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/generics/GenericsSummary.vue":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: {
-        entities: {
-            type: Array,
-            default: function _default() {
-                return [];
-            }
-        },
-        showNew: {
-            type: Boolean,
-            default: false
-        },
-        triggerEvent: {
-            type: String,
-            default: 'nav-to-artist'
-        },
-        entName: {
-            type: String,
-            default: 'artist'
-        },
-        countString: {
-            type: String,
-            default: 'tracks curated.'
-        }
-    },
-    methods: {
-        GradeColor: function GradeColor(count) {
-            var color = 'brown--text darken-4';
-            if (count > 1) color = 'grey--text darken-1';
-            if (count > 3) color = 'amber--text accent-4';
-            return color;
-        }
-    },
-    computed: {
-        isEmpty: function isEmpty() {
-            return this.entities.length == 0;
-        },
-        capEntName: function capEntName() {
-            return this.entName.substring(0, 1).toUpperCase() + this.entName.substring(1);
-        }
     }
 });
 
@@ -1253,268 +1060,6 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-4ab18683", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-691f913e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/generics/GenericsSummary.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "v-list",
-    { attrs: { "two-line": "" } },
-    [
-      _vm.isEmpty
-        ? _c(
-            "div",
-            [
-              _c("v-divider"),
-              _vm._v(" "),
-              _c(
-                "v-list-tile",
-                { attrs: { avatar: "" } },
-                [
-                  _c("v-list-tile-avatar", [
-                    _c("i", { staticClass: "fas fa-ellipsis-h grey--text" })
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-tile-content",
-                    { staticClass: "grey--text" },
-                    [
-                      _c("v-list-tile-title", [
-                        _vm._v("No " + _vm._s(_vm.capEntName + "s") + " Here")
-                      ]),
-                      _vm._v(" "),
-                      _c("v-list-tile-sub-title", [_vm._v("Not yet anyways.")])
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._l(_vm.entities, function(entity) {
-        return _c(
-          "div",
-          { key: entity.name },
-          [
-            _c("v-divider"),
-            _vm._v(" "),
-            _c(
-              "v-list-tile",
-              {
-                attrs: { avatar: "" },
-                on: {
-                  click: function($event) {
-                    _vm.$emit(_vm.triggerEvent, entity.name)
-                  }
-                }
-              },
-              [
-                _c("v-list-tile-avatar", [
-                  _c("img", {
-                    attrs: { src: "https://via.placeholder.com/200x200" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c(
-                  "v-list-tile-content",
-                  [
-                    _c("v-list-tile-title", [_vm._v(_vm._s(entity.name))]),
-                    _vm._v(" "),
-                    _c("v-list-tile-sub-title", [
-                      _c("span", { staticClass: "text--primary" }, [
-                        _c(
-                          "span",
-                          {
-                            staticClass: "body-2",
-                            class: _vm.GradeColor(entity.miscCount)
-                          },
-                          [_vm._v(_vm._s(entity.miscCount))]
-                        ),
-                        _vm._v(" " + _vm._s(_vm.countString))
-                      ])
-                    ])
-                  ],
-                  1
-                )
-              ],
-              1
-            )
-          ],
-          1
-        )
-      }),
-      _vm._v(" "),
-      _vm.showNew
-        ? _c(
-            "div",
-            [
-              _c("v-divider"),
-              _vm._v(" "),
-              _c(
-                "v-list-tile",
-                {
-                  attrs: { avatar: "" },
-                  on: {
-                    click: function($event) {
-                      _vm.$emit("request-add-" + _vm.entName)
-                    }
-                  }
-                },
-                [
-                  _c("v-list-tile-avatar", [
-                    _c("i", { staticClass: "fas fa-plus fa-lg" })
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-tile-content",
-                    [
-                      _c("v-list-tile-title", [
-                        _vm._v("Add " + _vm._s(_vm.capEntName))
-                      ]),
-                      _vm._v(" "),
-                      _c("v-list-tile-sub-title", [
-                        _c("span", { staticClass: "text--primary" }, [
-                          _vm._v("existing, or new")
-                        ])
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        : _vm._e()
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-691f913e", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-f0f7ec9c\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/generics/GenericSelectDialog.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "v-dialog",
-    {
-      attrs: { "max-width": "500px", persistent: "" },
-      model: {
-        value: _vm.show,
-        callback: function($$v) {
-          _vm.show = $$v
-        },
-        expression: "show"
-      }
-    },
-    [
-      _c(
-        "v-card",
-        [
-          _c("v-card-title", { staticClass: "title" }, [
-            _vm._v(_vm._s(_vm.capEntName) + " Select")
-          ]),
-          _vm._v(" "),
-          _c(
-            "v-card-text",
-            [
-              _c("p", [
-                _vm._v(
-                  "Type (at least) three letters of the " +
-                    _vm._s(_vm.entName) +
-                    "'s name to search."
-                )
-              ]),
-              _vm._v(" "),
-              _c("p", { staticStyle: { "font-weight": "bold" } }, [
-                _vm._v("Adam: Try one of these: " + _vm._s(_vm.testingNames))
-              ]),
-              _vm._v(" "),
-              _c("v-text-field", {
-                attrs: { label: "Search by Name" },
-                model: {
-                  value: _vm.filter,
-                  callback: function($$v) {
-                    _vm.filter = $$v
-                  },
-                  expression: "filter"
-                }
-              }),
-              _vm._v(" "),
-              _c("v-generics-summary", {
-                attrs: {
-                  entities: _vm.filteredEntities,
-                  "count-string": _vm.countString,
-                  "ent-name": _vm.entName,
-                  "trigger-event": "add-entity"
-                },
-                on: { "add-entity": _vm.ChainAddEntity }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-card-actions",
-            [
-              _c("v-spacer"),
-              _vm._v(" "),
-              _c(
-                "v-btn",
-                {
-                  attrs: { color: "blue darken-1", flat: "" },
-                  nativeOn: {
-                    click: function($event) {
-                      _vm.$emit("close-" + _vm.entName + "-dialog")
-                    }
-                  }
-                },
-                [_vm._v("Close")]
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-f0f7ec9c", module.exports)
   }
 }
 
@@ -30196,102 +29741,6 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ "./resources/assets/js/components/generics/GenericSelectDialog.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
-/* script */
-var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/generics/GenericSelectDialog.vue")
-/* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-f0f7ec9c\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/generics/GenericSelectDialog.vue")
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\generics\\GenericSelectDialog.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-f0f7ec9c", Component.options)
-  } else {
-    hotAPI.reload("data-v-f0f7ec9c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/generics/GenericsSummary.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
-/* script */
-var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/generics/GenericsSummary.vue")
-/* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-691f913e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/generics/GenericsSummary.vue")
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\generics\\GenericsSummary.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-691f913e", Component.options)
-  } else {
-    hotAPI.reload("data-v-691f913e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
 /***/ "./resources/assets/js/components/tracks/TracksSummary.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30340,7 +29789,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ "./resources/assets/js/pages/artists/create.js":
+/***/ "./resources/assets/js/pages/tracks/index.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30351,43 +29800,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuetify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuetify__);
 
 
+
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuetify___default.a);
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-main-nav', __webpack_require__("./resources/assets/js/components/MainNav.vue"));
-
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-generics-summary', __webpack_require__("./resources/assets/js/components/generics/GenericsSummary.vue"));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-entity-select-dialog', __webpack_require__("./resources/assets/js/components/generics/GenericSelectDialog.vue"));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-tracks-summary', __webpack_require__("./resources/assets/js/components/tracks/TracksSummary.vue"));
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#main',
     data: {
         drawer: false,
-        showAddArtist: false,
-        showAddLabel: false,
-        releaseDate: '',
-        contributingArtists: [],
-        searchableArtists: [{ name: 'Droeloe', miscCount: 5, path: '#' }, { name: 'Illenium', miscCount: 3, path: '#' }],
-        publishingLabels: [],
-        searchableLabels: [{ name: 'Bitbird Radio', miscCount: 4, path: '#' }, { name: 'Seeking Blue', miscCount: 2, path: '#' }, { name: 'Kasaya', miscCount: 2, path: '#' }],
-        includedTracks: []
-    },
-    methods: {
-        AddArtist: function AddArtist(name) {
-            console.log(name);
-        },
-        Test: function Test() {
-            console.log('ran');
-        }
+        nameFilter: '',
+        tracks: [{ name: 'Fractures', artists: [{ name: 'Illenium' }], vocalists: [{ name: 'Nevve' }], chars: ['Guitar', 'Stunning Vocals'], id: '0' }, { name: 'zZz', artists: [{ name: 'Droeloe' }], vocalists: [], chars: ['Unique Sampling', 'Thoughtful Progression'], id: '1' }]
     }
 });
 
 /***/ }),
 
-/***/ 8:
+/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./resources/assets/js/pages/artists/create.js");
+module.exports = __webpack_require__("./resources/assets/js/pages/tracks/index.js");
 
 
 /***/ })

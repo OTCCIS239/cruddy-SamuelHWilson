@@ -367,6 +367,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return [];
             }
         },
+        nameFilter: {
+            type: String,
+            default: ''
+        },
         size: {
             type: String,
             default: '220px'
@@ -376,7 +380,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             default: false
         }
     },
-    computed: {},
+    computed: {
+        filteredTracks: function filteredTracks() {
+            var fTracks = this.tracks;
+
+            if (this.nameFilter != '') {
+                fTracks = fTracks.filter(function (track) {
+                    return track.name.match(new RegExp(this.nameFilter + "*", 'i'));
+                }, this);
+            }
+
+            return fTracks;
+        }
+    },
     methods: {
         OneLiner: function OneLiner(track) {
             var s = '';
@@ -977,11 +993,11 @@ var render = function() {
     [
       _c(
         "div",
-        _vm._l(_vm.tracks, function(track) {
+        _vm._l(_vm.filteredTracks, function(track) {
           return _c(
             "v-card",
             {
-              key: track.name,
+              key: track.id,
               staticClass: "d-inline-block mr-3 mb-3",
               style: { width: _vm.size }
             },

@@ -2,8 +2,8 @@
     <div>
         <div>
             <v-card
-                v-for='track in tracks'
-                :key='track.name'
+                v-for='track in filteredTracks'
+                :key='track.id'
                 :style='{ width: size }'
                 class='d-inline-block mr-3 mb-3'>
                 <v-card-media
@@ -41,6 +41,10 @@
                     return []
                 }
             },
+            nameFilter: {
+                type: String,
+                default: ''
+            },
             size: {
                 type: String,
                 default: '220px'
@@ -51,7 +55,17 @@
             }
         },
         computed: {
-            
+            filteredTracks: function() {
+                var fTracks = this.tracks
+
+                if (this.nameFilter != '') {
+                    fTracks = fTracks.filter(function(track) {
+                        return track.name.match(new RegExp(this.nameFilter + "*", 'i'))
+                    }, this)
+                }
+
+                return fTracks
+            }
         },
         methods: {
             OneLiner: function(track) {
