@@ -10,7 +10,7 @@
         <v-generics-summary :ent-name='entName' 
                             :count-string='countString' 
                             :entities='selectedEntities' 
-                            :action-btn-icon='"times-circle"' 
+                            :action-btn-icon='"trash-alt"' 
                             :action-btn-event='"remove-entity"'
                             v-on:remove-entity='RemoveEntity'>
         </v-generics-summary> 
