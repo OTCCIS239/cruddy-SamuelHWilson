@@ -13,7 +13,7 @@
             <v-text-field style='width:100%' label='Track Name' class='mt-2'></v-text-field>
             
             <h2 class='headline text-center mt-3'>Notable Characteristics</h2>
-            
+            <v-char-select :chars='chars' :searchable-chars='chars'></v-char-select>          
         </div>
     </v-flex>
     <v-flex sm4>

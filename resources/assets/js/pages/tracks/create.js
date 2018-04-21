@@ -19,6 +19,14 @@ Vue.component(
     'v-tracks-summary',
     require('../../components/tracks/TracksSummary.vue')
 )
+Vue.component(
+    'v-char-summary',
+    require('../../components/characteristics/CharacteristicsSummary.vue')
+)
+Vue.component(
+    'v-char-select',
+    require('../../components/characteristics/CharacteristicSelect.vue')
+)
 
 const app = new Vue({
     el: '#main',
@@ -40,6 +48,13 @@ const app = new Vue({
             { name: 'Bitbird Radio', miscCount: 4, id:'0' },
             { name: 'Seeking Blue', miscCount: 2, id:'1'  },
             { name: 'Kasaya', miscCount: 2, id:'2' }
+        ],
+        chars: [
+            { name: 'Stunning Vocals', id: 0 },
+            { name: 'Thoughtful Progression', id: 1 },
+            { name: 'Piano', id: 2 },
+            { name: 'Powerful Mood', id: 3 },
+            { name: 'Compelling Drop', id: 4 }
         ]
     },
     methods: {
