@@ -17,9 +17,9 @@ class CreateArtistsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('bio');
-            $table->string('pictureID')
-            $table->isPrimary('boolean');
-            $table->isVocalist('boolean');
+            $table->string('pictureID');
+            $table->boolean('isPrimary');
+            $table->boolean('isVocalist');
             $table->timestamps();
         });
     }

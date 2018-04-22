@@ -211,8 +211,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -228,7 +226,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
+/* harmony default export */ __webpack_exports__["default"] = ({
     props: {
         isEditing: {
             type: Boolean,
@@ -249,11 +247,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         SmartSelect: function SmartSelect(event) {
             if (!this.isSelected) {
                 this.isSelected = true;
-                // this.$emit('target-char', this.char.name)
+                this.$emit('target-char', this.char.name);
             } else {
                 this.isSelected = false;
-                // this.$emit('undo-target-char', this.char.name)
+                this.$emit('undo-target-char', this.char.name);
             }
+        },
+        testName: function testName(regex) {
+            return this.char.name.test(regex);
         }
     },
     computed: {
@@ -271,11 +272,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
         }
     }
-}, 'methods', {
-    testName: function testName(regex) {
-        return this.char.name.test(regex);
-    }
-}));
+});
 
 /***/ }),
 

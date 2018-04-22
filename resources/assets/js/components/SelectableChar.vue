@@ -2,9 +2,9 @@
     <div class='d-inline-block'>
         <v-chip v-if='!isEditing' color="primary" text-color="white">{{this.char.name}}</v-chip>
         <v-chip v-if='isEditing'  
+                @click='SmartSelect'
                 :color='color'
-                text-color="white"
-                v-on:click='SmartSelect'>
+                text-color="white">
             {{this.char.name}} 
             <div v-show='!isSelected'><i class='fas fa-lg ml-2 fa-times-circle' ></i></div>
             <div  v-show='isSelected'><i class='fas fa-lg ml-2 fa-undo-alt'></i></div>
@@ -36,11 +36,14 @@
             SmartSelect: function(event) {
                 if (!this.isSelected) {
                     this.isSelected = true;
-                    // this.$emit('target-char', this.char.name)
+                    this.$emit('target-char', this.char.name)
                 } else {
                     this.isSelected = false;
-                    // this.$emit('undo-target-char', this.char.name)
+                    this.$emit('undo-target-char', this.char.name)
                 }
+            },
+            testName: function(regex) {
+                return this.char.name.test(regex)
             }
         },
         computed: {
@@ -56,11 +59,6 @@
                 if (this.isEditing == false) {
                     this.isSelected = false
                 }
-            }
-        },
-        methods: {
-            testName: function(regex) {
-                return this.char.name.test(regex)
             }
         }
     }

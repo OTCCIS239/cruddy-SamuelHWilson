@@ -6,15 +6,6 @@
     <v-flex sm1></v-flex>
     <v-flex sm5>
         <div class="pa-4">
-        <h2 class='title mb-2'>All Characteristics</h2>
-            <v-editable-char v-for='char in showChars' 
-                             :char='char' 
-                             :is-editing='isEditing'>
-            </v-editable-char>
-        </div>
-    </v-flex>
-    <v-flex sm5>
-        <div class="pa-4">
             <h2 class='title mb-2'>Manage Characteristics</h2>
             <v-text-field 
                 label="Filter by Name"
@@ -30,6 +21,15 @@
                 <v-flex xs6 v-if='isEditing' class='px-1'>
                     <v-btn style='width: 100%' class='red white--text'>Delete Selected</v-btn>
                 </v-flex>
+        </div>
+    </v-flex>
+    <v-flex sm5>
+        <div class="pa-4">
+        <h2 class='title mb-2'>All Characteristics</h2>
+            <v-editable-char v-for='char in showChars' 
+                             :char='char' 
+                             :is-editing='isEditing'>
+            </v-editable-char>
         </div>
     </v-flex>
     <v-flex sm1></v-flex>    
