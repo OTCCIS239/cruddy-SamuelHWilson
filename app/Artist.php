@@ -11,4 +11,9 @@ class Artist extends Model
         'bio',
         'pictureID'
     ];
+
+    public function tracks()
+    {
+        return $this->belongsToMany(Track::class, 'artist_tracks', 'artistID', 'trackID');
+    }
 }

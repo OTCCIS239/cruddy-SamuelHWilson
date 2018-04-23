@@ -10,4 +10,9 @@ class Track extends Model
         'name',
         'pictureID'
     ];
+
+    public function artists()
+    {
+        return $this->belongsToMany(Artist::class, 'artist_tracks', 'trackID', 'artistID');
+    }
 }
