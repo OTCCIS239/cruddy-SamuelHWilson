@@ -13,6 +13,17 @@ class Track extends Model
 
     public function artists()
     {
-        return $this->belongsToMany(Artist::class, 'artist_tracks', 'trackID', 'artistID');
+        return $this->belongsToMany(Artist::class, 'artist_tracks', 'trackID', 'artistID')->where('artist_tracks.type','artist');
     }
+    public function vocalists()
+    {
+        return $this->belongsToMany(Artist::class, 'artist_tracks', 'trackID', 'artistID')->where('artist_tracks.type','artist');
+    }
+    public function characteristics() 
+    {
+        return $this->belongsToMany(Characteristic::class, 'characterisic_tracks', 'trackID', 'characterisicID');
+    }
+
+    protected $with = ['artists', 'vocalists', 'characteristics'];
+    // protected $appends = ['artists'];
 }

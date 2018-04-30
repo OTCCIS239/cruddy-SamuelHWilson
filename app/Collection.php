@@ -10,4 +10,9 @@ class Collection extends Model
         'name',
         'pictureID'
     ];
+
+    public function tracks()
+    {
+        return $this->belongsToMany(Track::class, 'collection_tracks', 'collectionID', 'trackID');
+    }
 }

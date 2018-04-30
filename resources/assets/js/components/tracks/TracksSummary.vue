@@ -19,10 +19,10 @@
                     </v-container>
                 </v-card-media>
                 <v-card-title class='py-1'>
-                    <v-chip class='d-block mx-auto' color='primary white--text'>{{ track.chars[0] }}</v-chip>
+                    <v-chip class='d-block mx-auto' color='primary white--text'>{{ track.characteristics[0].name }}</v-chip>
                 </v-card-title>
                 <v-card-title class='pb-1 pt-0'>
-                    <v-chip class='d-block mx-auto' color='primary white--text'>{{ track.chars[1] }}</v-chip>
+                    <v-chip class='d-block mx-auto' color='primary white--text'>{{ track.characteristics[1].name }}</v-chip>
                 </v-card-title>
             </v-card>
         </div>

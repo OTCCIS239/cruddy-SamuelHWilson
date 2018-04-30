@@ -1,7 +1,11 @@
 
 import Vue from 'vue'
+
 import Vuetify from 'vuetify'
 Vue.use(Vuetify);
+
+import VueResource from 'vue-resource'
+Vue.use(VueResource);
 
 Vue.component(
     'v-main-nav',
@@ -17,9 +21,12 @@ const app = new Vue({
     data: {
         drawer: false,
         nameFilter: '',
-        tracks: [
-            { name: 'Fractures', artists: [ {name:'Illenium'} ], vocalists: [ {name:'Nevve'} ], chars: ['Guitar', 'Stunning Vocals'], id: '0' },
-            { name: 'zZz', artists: [ {name:'Droeloe'} ], vocalists: [], chars: ['Unique Sampling', 'Thoughtful Progression'], id: '1' }
-        ]
+        tracks: []
+    },
+    mounted: function() {
+        this.$http.get('/api/tracks/list/').then(response => {
+            this.tracks = response.body;
+        }, response => {
+        });
     }
 });

@@ -1,6 +1,10 @@
 import Vue from 'vue'
+
 import Vuetify from 'vuetify'
 Vue.use(Vuetify);
+
+import VueResource from 'vue-resource'
+Vue.use(VueResource);
 
 Vue.component(
     'v-main-nav',
@@ -22,19 +26,7 @@ const app = new Vue({
         drawer: false,
         filter: '',
         isEditing: false,
-        testData: [
-            {name:'Stunning Vocals'},
-            {name:'Thoughtful Composition'},
-            {name:'Unique Sampling'},
-            {name:'Tasteful Vocal-Sampling'},
-            {name:'Guitar'},
-            {name:'Purposeful Progression'},
-            {name:'Piano'},
-            {name:'Unique Sound'},
-            {name:'Hype'},
-            {name:'Chill'},
-            {name:'Engaging Lyrics'}
-        ]
+        testData: []
     },
     computed: {
         showChars: function() {
@@ -53,5 +45,11 @@ const app = new Vue({
         filterRegex: function() {
             return new RegExp(this.filter + "*", 'i')
         }
+    },
+    mounted: function() {
+        this.$http.get('/api/characteristics/list/all').then(response => {
+            this.testData = response.body;
+        }, response => {
+        });
     }
 });

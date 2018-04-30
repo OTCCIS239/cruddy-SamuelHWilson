@@ -21,10 +21,12 @@ class CharacterisicTrackTableSeeder extends Seeder
             ]);
         });
         $tracks->each(function($track) use ($characteristics) {
-            DB::table('characterisic_tracks')->insert([
-                'characterisicID' => $characteristics->random(1)->pluck('id')[0],
-                'trackID' => $track['id']
-            ]);
+            for ($i = 0; $i < 2; $i++) {
+                DB::table('characterisic_tracks')->insert([
+                    'characterisicID' => $characteristics->random(1)->pluck('id')[0],
+                    'trackID' => $track['id']
+                ]);
+            }
         });
         for ($i = 0; $i < 30; $i++) {
             DB::table('characterisic_tracks')->insert([

@@ -1349,7 +1349,7 @@ var render = function() {
                       staticClass: "d-block mx-auto",
                       attrs: { color: "primary white--text" }
                     },
-                    [_vm._v(_vm._s(track.chars[0]))]
+                    [_vm._v(_vm._s(track.characteristics[0].name))]
                   )
                 ],
                 1
@@ -1365,7 +1365,7 @@ var render = function() {
                       staticClass: "d-block mx-auto",
                       attrs: { color: "primary white--text" }
                     },
-                    [_vm._v(_vm._s(track.chars[1]))]
+                    [_vm._v(_vm._s(track.characteristics[1].name))]
                   )
                 ],
                 1

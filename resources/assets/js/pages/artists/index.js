@@ -1,6 +1,10 @@
 import Vue from 'vue'
+
 import Vuetify from 'vuetify'
 Vue.use(Vuetify);
+
+import VueResource from 'vue-resource'
+Vue.use(VueResource);
 
 Vue.component(
     'v-main-nav',
@@ -17,10 +21,7 @@ const app = new Vue({
     data: {
         drawer: false,
         filter: '',
-        allArtists: [
-            { name: 'Droeloe', miscCount: 5, path: '#' },
-            { name: 'Illenium', miscCount: 3, path: '#' }
-        ], 
+        allArtists: [], 
         showArtists: []
     },
     methods: {
@@ -43,5 +44,11 @@ const app = new Vue({
                 return this.allArtists
             }
         }
+    },
+    mounted: function() {
+        this.$http.get('/api/artists/list/summary').then(response => {
+            this.allArtists = response.body;
+        }, response => {
+        });
     }
 })

@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Artist;
+use App\Collection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ArtistsController extends Controller
+class CollectionsController extends Controller
 {
     public function index($type) {
         if ($type == 'all') {
-            return Artist::all();
+            return Collection::all();
         }
         if ($type == 'summary') {
-            return Artist::select(['name', 'id'])->withCount('tracks as miscCount')->get();
+            return Collection::select(['name', 'id'])->withCount('tracks as miscCount')->get();
         }
     }
 }

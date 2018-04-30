@@ -1,6 +1,10 @@
 import Vue from 'vue'
+
 import Vuetify from 'vuetify'
 Vue.use(Vuetify);
+
+import VueResource from 'vue-resource'
+Vue.use(VueResource);
 
 Vue.component(
     'v-main-nav',
@@ -17,10 +21,7 @@ const app = new Vue({
     data: {
         drawer: false,
         filter: '',
-        allCollections: [
-            { name: 'Awake', miscCount: 2, path: '#' },
-            { name: 'A Moment In Time', miscCount: 1, path: '#' }
-        ], 
+        allCollections: [], 
         showCollections: []
     },
     methods: {
@@ -43,5 +44,11 @@ const app = new Vue({
                 return this.allCollections
             }
         }
+    },
+    mounted: function() {
+        this.$http.get('/api/collections/list/summary').then(response => {
+            this.allCollections = response.body;
+        }, response => {
+        });
     }
 })
