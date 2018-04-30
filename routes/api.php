@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group([
     'namespace' => 'Api',
 ], function() {
-
     Route::get('artists', 'ArtistsController@index');
-
+    Route::get('labels/list/{type}', 'LabelsController@index');
+    
 });

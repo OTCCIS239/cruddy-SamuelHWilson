@@ -1,6 +1,10 @@
 import Vue from 'vue'
+
 import Vuetify from 'vuetify'
 Vue.use(Vuetify);
+
+import VueResource from 'vue-resource'
+Vue.use(VueResource);
 
 Vue.component(
     'v-main-nav',
@@ -17,11 +21,7 @@ const app = new Vue({
     data: {
         drawer: false,
         filter: '',
-        allLabels: [
-            { name: 'Bitbird Radio', miscCount: 4, path: '#' },
-            { name: 'Seeking Blue', miscCount: 2, path: '#' },
-            { name: 'Kasaya', miscCount: 2, path: '#' }
-        ], 
+        allLabels: [], 
         showLabels: []
     },
     methods: {
@@ -44,5 +44,11 @@ const app = new Vue({
                 return this.allLabels
             }
         }
+    },
+    mounted: function() {
+        this.$http.get('/api/labels/list/summary').then(response => {
+            this.allLabels = response.body;
+        }, response => {
+        });
     }
 })

@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 
 class ArtistsController extends Controller
 {
-    
         public function index()
         {
             return Artist::withCount('tracks')->get();
