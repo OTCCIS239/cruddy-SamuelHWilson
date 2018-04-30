@@ -31411,7 +31411,8 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         drawer: false,
         filter: '',
         allLabels: [],
-        showLabels: []
+        showLabels: [],
+        name: ''
     },
     methods: {
         LinkToLabel: function LinkToLabel(name) {

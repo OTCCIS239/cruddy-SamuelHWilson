@@ -24,11 +24,17 @@
                 <v-card-title class='pb-1 pt-0'>
                     <v-chip class='d-block mx-auto' color='primary white--text'>{{ track.characteristics[1].name }}</v-chip>
                 </v-card-title>
+                <v-btn v-if='actionIcon != ""'
+                       absolute
+                       bottom='10'
+                       right
+                       dark
+                       fab
+                       @click='$emit(actionEvent, track.id)'>
+                    <i class='fas' :class='"fa-" + actionIcon'></i>
+                </v-btn>
             </v-card>
         </div>
-
-        <!-- Option to add new track. Only shows when specified. -->
-        <v-btn v-if='showNew'><i class='fas fa-plus fa-lg mr-2'></i>Add Track</v-btn>
     </div>
 </template>
 
@@ -49,9 +55,13 @@
                 type: String,
                 default: '220px'
             },
-            showNew: {
-                type: Boolean,
-                default: false
+            actionIcon: {
+                type: String,
+                default: ''
+            },
+            actionEvent: {
+                type: String,
+                default: ''
             }
         },
         computed: {

@@ -15,5 +15,8 @@ class ArtistsController extends Controller
         if ($type == 'summary') {
             return Artist::select(['name', 'id'])->withCount('tracks as miscCount')->get();
         }
+        if ($type == 'min') {
+            return Artist::select(['name', 'id'])->get();
+        }
     }
 }

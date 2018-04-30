@@ -32,6 +32,10 @@
                     return []
                 }
             },
+            changeEvent: {
+                type: String,
+                default: 'selected-artists'
+            },
             triggerEvent: {
                 type: String,
                 default: 'nav-to-artist'
@@ -73,11 +77,12 @@
         methods: {
             AddEntity: function(id) {
                 this.selectedIDs.push(id)
-                console.log(this.entName)
+                this.$emit(this.changeEvent, this.selectedIDs);
                 this.ClearValue()
             },
             RemoveEntity: function(id) { // TODO: Fix bug pushing name up into select, when entity is removed, sometimes.
                 this.selectedIDs.splice(this.selectedIDs.indexOf(id), 1);
+                this.$emit(this.changeEvent, this.selectedIDs);                
                 this.ClearValue()
             },
             ClearValue: function() { //Workaround. TODO: Not this.

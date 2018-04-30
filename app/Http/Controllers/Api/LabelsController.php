@@ -16,4 +16,25 @@ class LabelsController extends Controller
             return Label::select(['name', 'id'])->withCount('tracks as miscCount')->get();
         }
     }
+
+    public function store(Request $request) {
+        dd($track = App\Label::create($request));
+
+        // foreach($request->artists as $artistID) {
+        //     if is_numeric($artistID) {
+        //         $link = App\ArtistTracks::make();
+        //         $link->trackID = $track->id;
+        //         $link->artistID = $artistID;
+        //     }
+        // }
+
+        foreach($request->tracks as $trackID) {
+            if (is_numeric($trackID)) {
+                $link = App\LabelTracks::make();
+                $link->trackID = $track->id;
+                $link->trackID = $trackID;
+                $link->save();
+            }
+        }
+    }
 }

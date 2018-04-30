@@ -22,7 +22,8 @@ const app = new Vue({
         drawer: false,
         filter: '',
         allLabels: [], 
-        showLabels: []
+        showLabels: [],
+        name: ''
     },
     methods: {
         LinkToLabel: function(name) {

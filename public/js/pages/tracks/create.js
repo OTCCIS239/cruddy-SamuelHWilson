@@ -267,6 +267,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return [];
             }
         },
+        changeEvent: {
+            type: String,
+            default: 'selected-artists'
+        },
         triggerEvent: {
             type: String,
             default: 'nav-to-artist'
@@ -308,12 +312,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         AddEntity: function AddEntity(id) {
             this.selectedIDs.push(id);
-            console.log(this.entName);
+            this.$emit(this.changeEvent, this.selectedIDs);
             this.ClearValue();
         },
         RemoveEntity: function RemoveEntity(id) {
             // TODO: Fix bug pushing name up into select, when entity is removed, sometimes.
             this.selectedIDs.splice(this.selectedIDs.indexOf(id), 1);
+            this.$emit(this.changeEvent, this.selectedIDs);
             this.ClearValue();
         },
         ClearValue: function ClearValue() {
@@ -477,6 +482,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -494,9 +505,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             type: String,
             default: '220px'
         },
-        showNew: {
-            type: Boolean,
-            default: false
+        actionIcon: {
+            type: String,
+            default: ''
+        },
+        actionEvent: {
+            type: String,
+            default: ''
         }
     },
     computed: {
@@ -1382,116 +1397,129 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "div",
-        _vm._l(_vm.filteredTracks, function(track) {
-          return _c(
-            "v-card",
-            {
-              key: track.id,
-              staticClass: "d-inline-block mr-3 mb-3",
-              style: { width: _vm.size }
-            },
-            [
-              _c(
-                "v-card-media",
-                {
-                  staticClass: "white--text",
-                  attrs: {
-                    height: _vm.size,
-                    src: "https://via.placeholder.com/200x200"
-                  }
-                },
-                [
-                  _c(
-                    "v-container",
-                    { attrs: { "fill-height": "", fluid: "" } },
-                    [
-                      _c(
-                        "v-layout",
-                        { attrs: { "fill-height": "" } },
-                        [
-                          _c(
-                            "v-flex",
-                            {
-                              attrs: { xs12: "", "align-end": "", flexbox: "" }
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "pa-1",
-                                  staticStyle: {
-                                    "background-color": "rgba(0,0,0,0.4)"
-                                  }
-                                },
-                                [
-                                  _c("span", [
-                                    _vm._v(_vm._s(_vm.OneLiner(track)))
-                                  ])
-                                ]
-                              )
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-card-title",
-                { staticClass: "py-1" },
-                [
-                  _c(
-                    "v-chip",
-                    {
-                      staticClass: "d-block mx-auto",
-                      attrs: { color: "primary white--text" }
+  return _c("div", [
+    _c(
+      "div",
+      _vm._l(_vm.filteredTracks, function(track) {
+        return _c(
+          "v-card",
+          {
+            key: track.id,
+            staticClass: "d-inline-block mr-3 mb-3",
+            style: { width: _vm.size }
+          },
+          [
+            _c(
+              "v-card-media",
+              {
+                staticClass: "white--text",
+                attrs: {
+                  height: _vm.size,
+                  src: "https://via.placeholder.com/200x200"
+                }
+              },
+              [
+                _c(
+                  "v-container",
+                  { attrs: { "fill-height": "", fluid: "" } },
+                  [
+                    _c(
+                      "v-layout",
+                      { attrs: { "fill-height": "" } },
+                      [
+                        _c(
+                          "v-flex",
+                          { attrs: { xs12: "", "align-end": "", flexbox: "" } },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "pa-1",
+                                staticStyle: {
+                                  "background-color": "rgba(0,0,0,0.4)"
+                                }
+                              },
+                              [
+                                _c("span", [
+                                  _vm._v(_vm._s(_vm.OneLiner(track)))
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "v-card-title",
+              { staticClass: "py-1" },
+              [
+                _c(
+                  "v-chip",
+                  {
+                    staticClass: "d-block mx-auto",
+                    attrs: { color: "primary white--text" }
+                  },
+                  [_vm._v(_vm._s(track.characteristics[0].name))]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "v-card-title",
+              { staticClass: "pb-1 pt-0" },
+              [
+                _c(
+                  "v-chip",
+                  {
+                    staticClass: "d-block mx-auto",
+                    attrs: { color: "primary white--text" }
+                  },
+                  [_vm._v(_vm._s(track.characteristics[1].name))]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm.actionIcon != ""
+              ? _c(
+                  "v-btn",
+                  {
+                    attrs: {
+                      absolute: "",
+                      bottom: "10",
+                      right: "",
+                      dark: "",
+                      fab: ""
                     },
-                    [_vm._v(_vm._s(track.characteristics[0].name))]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-card-title",
-                { staticClass: "pb-1 pt-0" },
-                [
-                  _c(
-                    "v-chip",
-                    {
-                      staticClass: "d-block mx-auto",
-                      attrs: { color: "primary white--text" }
-                    },
-                    [_vm._v(_vm._s(track.characteristics[1].name))]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        })
-      ),
-      _vm._v(" "),
-      _vm.showNew
-        ? _c("v-btn", [
-            _c("i", { staticClass: "fas fa-plus fa-lg mr-2" }),
-            _vm._v("Add Track")
-          ])
-        : _vm._e()
-    ],
-    1
-  )
+                    on: {
+                      click: function($event) {
+                        _vm.$emit(_vm.actionEvent, track.id)
+                      }
+                    }
+                  },
+                  [
+                    _c("i", {
+                      staticClass: "fas",
+                      class: "fa-" + _vm.actionIcon
+                    })
+                  ]
+                )
+              : _vm._e()
+          ],
+          1
+        )
+      })
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
