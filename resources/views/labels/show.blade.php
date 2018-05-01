@@ -9,7 +9,7 @@
             <v-avatar style='position:relative;' :size='256' class='grey darken-1 d-block mx-auto mt-2'>
                 <img src='../../img/bitbird.jpg'>
             </v-avatar>
-            <h3 class='title text-xs-center mt-2'>Bitbird Radio</h3>
+            <h3 class='title text-xs-center mt-2'>@{{name}}</h3>
 
             <h3 class='subheading text-center mt-3'>Signed Artists</h3>
             
@@ -26,6 +26,10 @@
 @endsection
 
 @section('vue-inst')
+
+<script>
+    mainID = {{$id}}
+</script>
 
 <script src="/js/pages/labels/show.js"></script>
 

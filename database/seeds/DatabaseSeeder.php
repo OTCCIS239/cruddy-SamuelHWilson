@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LabelTrackTableSeeder::class);
         $this->call(CharacterisicTrackTableSeeder::class);
         $this->call(CollectionTrackTableSeeder::class);
+        $this->call(LabelArtistTableSeeder::class);
     }
 }

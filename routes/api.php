@@ -23,8 +23,8 @@ Route::group([
     Route::get('tracks/list/', 'TracksController@index');
     Route::get('artists/list/{type}', 'ArtistsController@index');
     Route::get('labels/list/{type}', 'LabelsController@index');
+    Route::get('labels/show/{id}', 'LabelsController@show');        
     Route::post('labels/store/', 'LabelsController@store');
     Route::get('collections/list/{type}', 'CollectionsController@index');
     Route::get('characteristics/list/{type}', 'CharacteristicsController@index');
-    
 });

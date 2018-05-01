@@ -1,6 +1,10 @@
 import Vue from 'vue'
+
 import Vuetify from 'vuetify'
 Vue.use(Vuetify);
+
+import VueResource from 'vue-resource'
+Vue.use(VueResource);
 
 Vue.component(
     'v-main-nav',
@@ -25,12 +29,9 @@ const app = new Vue({
     data: {
         drawer: false,
         showAddArtist: false,
-        signedArtists: [
-            { name: 'Droeloe', miscCount: 5, path: '#' }
-        ],
-        publishedTracks: [
-            { name: 'zZz', artists: [ {name:'Droeloe'} ], vocalists: [ ], chars: ['Unique Sampling', 'Thoughtful Progression'] }
-        ]
+        name: '',
+        signedArtists: [],
+        publishedTracks: []
     },
     methods: {
         AddArtist: function(name) {
@@ -39,5 +40,14 @@ const app = new Vue({
         Test: function() {
             console.log('ran')
         }
+    },
+    mounted: function() {
+        this.$http.get('/api/labels/show/' + mainID).then(response => {
+            this.name = response.body.name;
+            this.signedArtists = response.body.artists;
+            this.publishedTracks = response.body.tracks;
+        }, response => {
+            console.log("Arghhh!");
+        });
     }
 })

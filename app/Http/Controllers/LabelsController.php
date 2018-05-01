@@ -45,7 +45,7 @@ class LabelsController extends Controller
      */
     public function show($id)
     {
-        return view('labels.show');
+        return view('labels.show', ['id'=>$id]);
     }
 
     /**

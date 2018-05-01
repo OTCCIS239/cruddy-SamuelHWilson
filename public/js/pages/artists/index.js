@@ -2190,7 +2190,7 @@ function xhrClient (request) {
 
 function nodeClient (request) {
 
-    var client = __webpack_require__(5);
+    var client = __webpack_require__(0);
 
     return new PromiseObj(function (resolve) {
 
@@ -31447,18 +31447,18 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
 /***/ }),
 
+/***/ 0:
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
 /***/ 11:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./resources/assets/js/pages/artists/index.js");
 
-
-/***/ }),
-
-/***/ 5:
-/***/ (function(module, exports) {
-
-/* (ignored) */
 
 /***/ })
 

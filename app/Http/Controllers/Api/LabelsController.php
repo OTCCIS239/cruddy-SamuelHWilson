@@ -37,4 +37,8 @@ class LabelsController extends Controller
             }
         }
     }
+
+    public function show($id) {
+        return Label::findOrFail($id);
+    }
 }

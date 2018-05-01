@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2190,7 +2190,7 @@ function xhrClient (request) {
 
 function nodeClient (request) {
 
-    var client = __webpack_require__(5);
+    var client = __webpack_require__(0);
 
     return new PromiseObj(function (resolve) {
 
@@ -31448,18 +31448,18 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
 /***/ }),
 
-/***/ 4:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 0:
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__("./resources/assets/js/pages/labels/index.js");
-
+/* (ignored) */
 
 /***/ }),
 
 /***/ 5:
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-/* (ignored) */
+module.exports = __webpack_require__("./resources/assets/js/pages/labels/index.js");
+
 
 /***/ })
 
